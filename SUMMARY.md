@@ -4,7 +4,7 @@
 * [Project1: web app e-ecommerce Front-end](p1/intro.md)
 * [Ch1: introduction to Web fullStack](ch1/build.md)
     * [1. Precondition](ch1/fuel.md)
-    * [2. web app registration and](ch1/air.md)
+    * [2. web app registration](ch1/air.md)
     * [3. 总装工程学](ch1/enginer.md)
     * [小结](ch1/WRAPUP.md)
 * [第二章：如何回收火箭](ch2/recycle.md)
