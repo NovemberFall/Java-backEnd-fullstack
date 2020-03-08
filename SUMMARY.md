@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Project1: web app e-ecommerce Front-end](p1/intro.md)
+* [Project1: web app e-ecommerce](p1/intro.md)
 * [Ch1: introduction to Web fullStack](ch1/build.md)
     * [1. Precondition](ch1/fuel.md)
     * [2. web app registration](ch1/air.md)
