@@ -20,3 +20,24 @@
 ---
 
 ## Note: all images are dynamic and we may adjust them
+
+- open home.wxml
+- create a `image` tag, set top-theme's styles
+- click `home.wxss`
+
+![](img/2020-03-11-16-02-20.png)
+- width fills entire screen
+- home.wxml  
+```html
+<view>
+	<image class="top-theme" src="" />
+</view>
+```
+- home.wxss
+```css
+.top-theme{
+    width:100%;  /*if u can use 100%, don't use 750 rpx*/
+    height: 260rpx;
+}
+/* option+command+L */
+```
