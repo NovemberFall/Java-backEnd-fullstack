@@ -310,19 +310,21 @@
   },
 </code></pre>
 <ul>
-<li>but this style is not good, we can package these data</li>
-<li>create a project root directory <code>config/config.js</code>
-```js
-const config = {
-  appkey: &apos;&apos;,
-  apiBaseUrl: &apos;<a href="http://se.7yue.pro/" target="_blank">http://se.7yue.pro/</a>&apos;
-};</li>
+<li>but this style is not good, we can package these data<h3 id="create-a-project-root-directory-configconfigjs">create a project root directory <code>config/config.js</code></h3>
+</li>
 </ul>
-<p>export {
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> config = {
+    appkey: <span class="hljs-string">&apos;&apos;</span>,
+    apiBaseUrl: <span class="hljs-string">&apos;http://se.7yue.pro/&apos;</span>
+};
+
+<span class="hljs-keyword">export</span> {
     config
-}</p>
-<p>//module.exports</p>
-<h2 id="">```</h2>
+}
+
+<span class="hljs-comment">//module.exports</span>
+</code></pre>
+<hr>
 <h2 id="back-to-wechat-miniapp">back to wechat miniApp</h2>
 <ul>
 <li>click setting -&gt; Project setting
@@ -371,7 +373,7 @@ const config = {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5. appkey | server API","level":"1.2.1.5","depth":3,"next":{"title":"Summary","level":"1.2.1.6","depth":3,"path":"ch1/WRAPUP.md","ref":"ch1/WRAPUP.md","articles":[]},"previous":{"title":"4. starting","level":"1.2.1.4","depth":3,"path":"ch1/start.md","ref":"ch1/start.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"ch1/appkey.md","mtime":"2020-03-12T04:25:20.010Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-12T04:43:11.062Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5. appkey | server API","level":"1.2.1.5","depth":3,"next":{"title":"Summary","level":"1.2.1.6","depth":3,"path":"ch1/WRAPUP.md","ref":"ch1/WRAPUP.md","articles":[]},"previous":{"title":"4. starting","level":"1.2.1.4","depth":3,"path":"ch1/start.md","ref":"ch1/start.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"ch1/appkey.md","mtime":"2020-03-12T04:49:30.432Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-12T04:49:39.194Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

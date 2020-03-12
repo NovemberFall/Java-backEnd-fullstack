@@ -39,7 +39,9 @@ https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/api.html
   },
 ```
 - but this style is not good, we can package these data
-- create a project root directory `config/config.js`
+### create a project root directory `config/config.js`
+
+
 ```js
 const config = {
     appkey: '',
