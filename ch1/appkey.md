@@ -25,7 +25,7 @@ https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/api.html
    * Lifecycle function--listening when page load
    */
   onLoad: function (options) {
-    wx.request(options: {
+    wx.request({
       // url: 'http://se.7yue.pro/v1/theme/by/names?names=t-1',
       url: 'http://se.7yue.pro/v1/theme/by/names',
       method: 'GET',
@@ -44,8 +44,8 @@ https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/api.html
 
 ```js
 const config = {
-    appkey: '',
-    apiBaseUrl: 'http://se.7yue.pro/'
+    appkey: 'WStnGT0uWpYyaVrn',
+    apiBaseUrl: 'http://se.7yue.pro/v1/'
 };
 
 export {

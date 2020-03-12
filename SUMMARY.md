@@ -9,5 +9,8 @@
         * [4. starting](ch1/start.md)
         * [5. appkey | server API](ch1/appkey.md)
         * [Summary](ch1/WRAPUP.md)
+    * [Ch2: Http Request](ch2/intoCh2.md)
+        * [1. config| call server API](ch2/config.md)
+        * [Summary](ch2/WRAPUP.md)
 * [End](end/SUMMARY.md)
 

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Project1: web app e-ecommerce · GitBook</title>
+        <title>1. config| call server API · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -53,10 +53,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../ch1/intoCh1.html" />
+    <link rel="next" href="WRAPUP.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="intoCh2.html" />
     
 
     </head>
@@ -98,9 +98,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="intro.html">
+        <li class="chapter " data-level="1.2" data-path="../p1/intro.html">
             
-                <a href="intro.html">
+                <a href="../p1/intro.html">
             
                     
                     Project1: web app e-ecommerce
@@ -209,9 +209,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../ch2/intoCh2.html">
+        <li class="chapter " data-level="1.2.2" data-path="intoCh2.html">
             
-                <a href="../ch2/intoCh2.html">
+                <a href="intoCh2.html">
             
                     
                     Ch2: Http Request
@@ -223,9 +223,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.1" data-path="../ch2/config.html">
+        <li class="chapter active" data-level="1.2.2.1" data-path="config.html">
             
-                <a href="../ch2/config.html">
+                <a href="config.html">
             
                     
                     1. config| call server API
@@ -236,9 +236,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.2" data-path="../ch2/WRAPUP.html">
+        <li class="chapter " data-level="1.2.2.2" data-path="WRAPUP.html">
             
-                <a href="../ch2/WRAPUP.html">
+                <a href="WRAPUP.html">
             
                     
                     Summary
@@ -302,7 +302,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Project1: web app e-ecommerce</a>
+        <a href=".." >1. config| call server API</a>
     </h1>
 </div>
 
@@ -317,7 +317,113 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="project1-web-app-e-ecommerce">Project1: web app e-ecommerce</h1>
+                                <h1 id="1-config--call-server-api">1. config | call server API</h1>
+<h3 id="import-config-from-configconfigjs">import config, from <code>config/config.js</code></h3>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { config } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../../config/config&quot;</span>
+
+<span class="hljs-comment">// pages/home/home.js</span>
+Page({
+
+  <span class="hljs-comment">/**
+   * Page initial data
+   */</span>
+  data: {
+
+  },
+
+  <span class="hljs-comment">/**
+   * Lifecycle function--listening when page load
+   */</span>
+  onLoad: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>{
+    wx.request({
+      <span class="hljs-comment">//Template string</span>
+      url: <span class="hljs-string">`<span class="hljs-subst">${config.apiBaseUrl}</span>theme/by/names`</span>,
+      <span class="hljs-comment">// url: &apos;http://se.7yue.pro/v1/theme/by/names?names=t-1&apos;,</span>
+      method: <span class="hljs-string">&apos;GET&apos;</span>,
+      data: {
+        names: <span class="hljs-string">&apos;t-1&apos;</span>
+      },
+      header: {
+        appkey: config.appkey
+      }
+    })
+  },
+</code></pre>
+<ul>
+<li>now we may see the result of request
+<img src="img/2020-03-11-22-55-23.png" alt=""><h3 id="more-detail-for-homejs">more detail for home.js</h3>
+```js
+import { config } from &quot;../../config/config&quot;</li>
+</ul>
+<p>// pages/home/home.js
+Page({</p>
+<p>  /**</p>
+<ul>
+<li><p>Page initial data
+*/
+data: {
+topTheme: null,
+},</p>
+<p>/**</p>
+</li>
+<li>Lifecycle function--listening when page load
+*/
+onLoad: function (options) {
+wx.request({
+ //Template string
+ url: <code>${config.apiBaseUrl}theme/by/names</code>,
+ // url: &apos;<a href="http://se.7yue.pro/v1/theme/by/names?names=t-1" target="_blank">http://se.7yue.pro/v1/theme/by/names?names=t-1</a>&apos;,
+ method: &apos;GET&apos;,
+ data: {
+   names: &apos;t-1&apos;
+ },
+ header: {
+   appkey: config.appkey
+ },
+ success(res) {
+   console.log(res);
+   this.setData({   //res.data &#x662F;&#x8FD9;&#x7EC4;&#x6570;&#x636E;<pre><code> topTheme: res.data[0]
+</code></pre>   })
+ }
+})
+},
+```</li>
+</ul>
+<h3 id="update-homewwml">update home.wwml</h3>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!--pages/home/home.wxml--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;top-theme&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{{topTheme.entrance_img}}&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
+</code></pre>
+<h3 id="update-homejs">update home.js</h3>
+<pre><code class="lang-js">
+  <span class="hljs-comment">/**
+   * Lifecycle function--listening when page load
+   */</span>
+  onLoad: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>{
+    wx.request({
+      <span class="hljs-comment">//Template string</span>
+      url: <span class="hljs-string">`<span class="hljs-subst">${config.apiBaseUrl}</span>theme/by/names`</span>,
+      <span class="hljs-comment">// url: &apos;http://se.7yue.pro/v1/theme/by/names?names=t-1&apos;,</span>
+      method: <span class="hljs-string">&apos;GET&apos;</span>,
+      data: {
+        names: <span class="hljs-string">&apos;t-1&apos;</span>
+      },
+      header: {
+        appkey: config.appkey
+      },
+      success: (res) =&gt; {
+        <span class="hljs-built_in">console</span>.log(res);
+        <span class="hljs-keyword">this</span>.setData({   <span class="hljs-comment">//res.data &#x662F;&#x8FD9;&#x7EC4;&#x6570;&#x636E;</span>
+          topTheme: res.data[<span class="hljs-number">0</span>]
+        })
+      }
+    })
+  },
+</code></pre>
+<hr>
+<h3 id="now-we-may-see-the-toptheme">now we may see the topTheme</h3>
+<p><img src="img/2020-03-12-02-18-44.png" alt=""></p>
 
                                 
                                 </section>
@@ -345,12 +451,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="intoCh2.html" class="navigation navigation-prev " aria-label="Previous page: Ch2: Http Request">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../ch1/intoCh1.html" class="navigation navigation-next " aria-label="Next page: Ch1: introduction to Web fullStack">
+                <a href="WRAPUP.html" class="navigation navigation-next " aria-label="Next page: Summary">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -361,7 +467,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Project1: web app e-ecommerce","level":"1.2","depth":1,"next":{"title":"Ch1: introduction to Web fullStack","level":"1.2.1","depth":2,"path":"ch1/intoCh1.md","ref":"ch1/intoCh1.md","articles":[{"title":"1. Precondition","level":"1.2.1.1","depth":3,"path":"ch1/pre.md","ref":"ch1/pre.md","articles":[]},{"title":"2. web app registration","level":"1.2.1.2","depth":3,"path":"ch1/register.md","ref":"ch1/register.md","articles":[]},{"title":"3. homework2","level":"1.2.1.3","depth":3,"path":"ch1/hw2.md","ref":"ch1/hw2.md","articles":[]},{"title":"4. starting","level":"1.2.1.4","depth":3,"path":"ch1/start.md","ref":"ch1/start.md","articles":[]},{"title":"5. appkey | server API","level":"1.2.1.5","depth":3,"path":"ch1/appkey.md","ref":"ch1/appkey.md","articles":[]},{"title":"Summary","level":"1.2.1.6","depth":3,"path":"ch1/WRAPUP.md","ref":"ch1/WRAPUP.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"p1/intro.md","mtime":"2020-03-10T05:22:30.700Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-12T09:18:53.906Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1. config| call server API","level":"1.2.2.1","depth":3,"next":{"title":"Summary","level":"1.2.2.2","depth":3,"path":"ch2/WRAPUP.md","ref":"ch2/WRAPUP.md","articles":[]},"previous":{"title":"Ch2: Http Request","level":"1.2.2","depth":2,"path":"ch2/intoCh2.md","ref":"ch2/intoCh2.md","articles":[{"title":"1. config| call server API","level":"1.2.2.1","depth":3,"path":"ch2/config.md","ref":"ch2/config.md","articles":[]},{"title":"Summary","level":"1.2.2.2","depth":3,"path":"ch2/WRAPUP.md","ref":"ch2/WRAPUP.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"ch2/config.md","mtime":"2020-03-12T09:18:46.340Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-12T09:18:53.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
