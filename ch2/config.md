@@ -36,6 +36,8 @@ Page({
 - now we may see the result of request
 ![](img/2020-03-11-22-55-23.png)
 ### more detail for home.js
+
+
 ```js
 import { config } from "../../config/config"
 
