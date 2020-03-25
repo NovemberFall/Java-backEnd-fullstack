@@ -173,5 +173,5 @@ Page({
 - same result.
 
 
-
+## 但现在代码可读性不高，每次都嵌套 callback, 还需要重构
 
