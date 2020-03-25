@@ -89,6 +89,13 @@ Page({
 
   /**
    * Lifecycle function--listening when page load
+   * JS 类型的约束
+   * 业务逻辑
+   * 数据绑定
+   * view视图层 业务逻辑层 桥梁 中间层
+   * mvc C controller
+   * Model, Logic, Service
+   * Service, Manager,  
    */
   onLoad: function (options) {
     wx.request({
@@ -115,7 +122,7 @@ Page({
 ### now we may see the topTheme
 ![](img/2020-03-12-02-18-44.png)
 
-
+ 
 
 
 

@@ -11,6 +11,7 @@
         * [Summary](ch1/WRAPUP.md)
     * [Ch2: Http Request](ch2/intoCh2.md)
         * [1. config| call server API](ch2/config.md)
+        * [2. business object](ch2/business.md)
         * [Summary](ch2/WRAPUP.md)
 * [End](end/SUMMARY.md)
 
