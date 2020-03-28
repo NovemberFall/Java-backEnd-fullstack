@@ -1,6 +1,9 @@
 # Summary
 
 * [Introduction](README.md)
+
+---
+
 * [Project1: web app e-ecommerce](p1/intro.md)
     * [Ch1: introduction to Web fullStack](ch1/intoCh1.md)
         * [1. Precondition](ch1/pre.md)
@@ -13,5 +16,8 @@
         * [1. config| call server API](ch2/config.md)
         * [2. business object](ch2/business.md)
         * [Summary](ch2/WRAPUP.md)
+
+---
+
 * [End](end/SUMMARY.md)
 
