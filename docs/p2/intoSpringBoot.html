@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>p2: introduction to SpringBoot · GitBook</title>
+        <title>ch1: introduction to SpringBoot · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -53,7 +53,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../end/SUMMARY.html" />
+    <link rel="next" href="initSpringBoot.html" />
     
     
     <link rel="prev" href="../p1/intro.html" />
@@ -305,11 +305,30 @@
                 <a href="intoSpringBoot.html">
             
                     
-                    p2: introduction to SpringBoot
+                    ch1: introduction to SpringBoot
             
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1.1" data-path="initSpringBoot.html">
+            
+                <a href="initSpringBoot.html">
+            
+                    
+                    1. initialize SpringBoot Project
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -361,7 +380,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >p2: introduction to SpringBoot</a>
+        <a href=".." >ch1: introduction to SpringBoot</a>
     </h1>
 </div>
 
@@ -386,6 +405,18 @@
 </li>
 <li><p>springmvc &#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x5B9E;&#x73B0; Restful API</p>
 </li>
+<li><p>springboot: &#x7EA6;&#x5B9A;&#x5927;&#x4E8E;&#x914D;&#x7F6E;, springmvc&#x914D;&#x7F6E;&#x8FC7;&#x4E8E;&#x7E41;&#x7410;, </p>
+</li>
+</ul>
+<pre><code class="lang-java">Interface &#x62BD;&#x8C61; &#x9762;&#x5411;&#x63A5;&#x53E3;/&#x62BD;&#x8C61; &#x9762;&#x5411;&#x5177;&#x4F53;
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-class"><span class="hljs-keyword">interface</span>
+<span class="hljs-title">xml</span>
+&#x81EA;&#x52A8;&#x88C5;&#x914D;
+<span class="hljs-title">IOC</span> &#x4F9D;&#x8D56;&#x6CE8;&#x5165; -&gt; &#x5FC5;&#x987B;&#x8981;&#x9762;&#x5BF9;&#x7684;
+</span></code></pre>
+<ul>
+<li><p>springcoud : &#x5982;&#x679C;&#x8981;&#x5B66;&#x4E60;&#xFF0C; &#x5FC5;&#x987B;&#x5148;&#x638C;&#x63E1;springboot &#x7684;&#x57FA;&#x7840;</p>
+</li>
 <li><p>Hibernate ORM (&#x5BF9;&#x8C61;&#x5173;&#x7CFB;&#x6620;&#x5C04;), &#x5F53;&#x5E74;&#x5FAE;&#x8F6F;&#x5F04;&#x51FA;Hibernate, EntityFramework ORM</p>
 </li>
 <li><p>ssh (&#x5F88;&#x957F;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#xFF0C;java&#x90FD;&#x662F;&#x56F4;&#x7ED5;ssh &#x6846;&#x67B6;)</p>
@@ -395,7 +426,79 @@
 <li><p>Anders Hejlsberg C# Pascal (dephi), &#x4ED6;&#x4E5F;&#x5199;&#x4E86; TypeScript (C# &#x7684;&#x7FFB;&#x7248;, &#x62EF;&#x6551;&#x4E86;C#)
 &#x4ED6;&#x8BBE;&#x8BA1;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x7B80;&#x5355;&#xFF0C;&#x6613;&#x7528;</p>
 </li>
+<li><p>IOC DI :</p>
+<ol>
+<li><p>Inversion Of Controll &#x63A7;&#x5236;&#x53CD;&#x8F6C;</p>
+</li>
+<li><p>Dependency Injection  &#x4F9D;&#x8D56;&#x6CE8;&#x5165;</p>
+</li>
+</ol>
+</li>
 </ul>
+<pre><code>1. &#x4F60;&#x81EA;&#x5DF1;&#x8981;&#x7406;&#x89E3;
+2. &#x4E0D;&#x80FD;&#x7167;&#x642C;
+3. &#x4E0D;&#x80FD;&#x7528;spring&#x89E3;&#x91CA;
+4. &#x4E3A;&#x4EC0;&#x4E48;
+</code></pre><pre><code>2.2.1.RELEASE
+
+2 &#x4EE3;&#x8868;&#x4E3B;&#x7248;&#x672C;
+.2. &#x4EE3;&#x8868;&#x6B21;&#x8981;&#x7248;&#x672C; &#x589E;&#x52A0;&#x65B0;&#x7279;&#x6027;&#xFF0C;&#x53D1;&#x5E03;&#x5C0F;&#x7684;&#x65B0;&#x7279;&#x6027; &#x8981;&#x4FDD;&#x8BC1;&#x517C;&#x5BB9;
+.1 &#x4EE3;&#x8868;&#x589E;&#x91CF;&#x7248;&#x672C; bug &#x4FEE;&#x590D;
+
+RELEASE &#x53D1;&#x5E03;&#x7248;&#x672C;&#xFF0C;&#x91CC;&#x7A0B;&#x7891;&#x7248;&#x672C;
+
+RC
+Alpha
+Beta
+GA
+SNAPSHOT &#x6BD4;&#x8F83;&#x7A33;&#x5B9A; &#x6301;&#x7EED;&#x6539;&#x8FDB;
+
+General Availbability (&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x9002;&#x7528;GA &#x7248;&#x672C;)
+
+
+Maven(&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;)   Gradle(&#x7528;Gradle, &#x4E0D;&#x9700;&#x8981;&#x5199;XML)
+Maven &#x6709;&#x4E00;&#x4E2A;&#x4E2D;&#x592E;&#x4ED3;&#x5E93;&#xFF0C;&#x653E;&#x7740;&#x5404;&#x79CD;&#x5305;&#xFF0C; Gradle &#x4E5F;&#x5728;&#x5F15;&#x7528; Maven &#x7684;&#x4E2D;&#x592E;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;
+
+XML
+Groovy DSL
+SQL
+
+DPL
+
+reuse : 
+
+
+&#x963F;&#x91CC;&#x6709;&#x4E00;&#x4E2A; fastjson &#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x9605;&#x8BFB;&#x5B66;&#x4E60;
+</code></pre><ul>
+<li><p>download maven</p>
+</li>
+<li><p><code>brew install maven</code></p>
+</li>
+</ul>
+<p><img src="img/2020-05-02-13-51-49.png" alt=""></p>
+<p>&#x5F00;&#x53D1;&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-java">JDK
+Maven
+
+JetBrain Intellij Idea
+
+VsCode Eclipse Idea
+
+Visual Studio &#xFF08;&#x5B87;&#x5B99;&#x7B2C;&#x4E00;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#xFF09;
+
+&#x521D;&#x59CB;&#x5316;&#x4F18;&#x5148;&#x7EA7;
+<span class="hljs-number">1</span>. Idea
+<span class="hljs-number">2</span>. SpringBoot &#x521D;&#x59CB;&#x5316;
+<span class="hljs-number">3</span>. Maven
+</code></pre>
+<h2 id="&#x5E38;&#x7528;java-&#x547D;&#x4EE4;">&#x5E38;&#x7528;java &#x547D;&#x4EE4;</h2>
+<p>&#x67E5;&#x770B;&#x5F53;&#x524D;java &#x7248;&#x672C;</p>
+<pre><code class="lang-sh">java -version
+</code></pre>
+<p>&#x67E5;&#x770B;quanbjava &#x7248;&#x672C;</p>
+<pre><code class="lang-sh">/usr/libexec/java_home -v
+</code></pre>
+<h1 id="redis-&#x5B89;&#x88C5;&#x4E0E;&#x5E38;&#x89C1;&#x547D;&#x4EE4;mac">Redis &#x5B89;&#x88C5;&#x4E0E;&#x5E38;&#x89C1;&#x547D;&#x4EE4;(Mac)</h1>
 
                                 
                                 </section>
@@ -428,7 +531,7 @@
                 </a>
                 
                 
-                <a href="../end/SUMMARY.html" class="navigation navigation-next " aria-label="Next page: End">
+                <a href="initSpringBoot.html" class="navigation navigation-next " aria-label="Next page: 1. initialize SpringBoot Project">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -439,7 +542,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"p2: introduction to SpringBoot","level":"3.1.1","depth":2,"next":{"title":"End","level":"3.2","depth":1,"path":"end/SUMMARY.md","ref":"end/SUMMARY.md","articles":[]},"previous":{"title":"Project Part2: web app e-ecommerce","level":"3.1","depth":1,"path":"p1/intro.md","ref":"p1/intro.md","articles":[{"title":"p2: introduction to SpringBoot","level":"3.1.1","depth":2,"path":"p2/intoSpringBoot.md","ref":"p2/intoSpringBoot.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"p2/intoSpringBoot.md","mtime":"2020-05-02T19:53:11.080Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-02T19:53:57.007Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ch1: introduction to SpringBoot","level":"3.1.1","depth":2,"next":{"title":"1. initialize SpringBoot Project","level":"3.1.1.1","depth":3,"path":"p2/initSpringBoot.md","ref":"p2/initSpringBoot.md","articles":[]},"previous":{"title":"Project Part2: web app e-ecommerce","level":"3.1","depth":1,"path":"p1/intro.md","ref":"p1/intro.md","articles":[{"title":"ch1: introduction to SpringBoot","level":"3.1.1","depth":2,"path":"p2/intoSpringBoot.md","ref":"p2/intoSpringBoot.md","articles":[{"title":"1. initialize SpringBoot Project","level":"3.1.1.1","depth":3,"path":"p2/initSpringBoot.md","ref":"p2/initSpringBoot.md","articles":[]}]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"p2/intoSpringBoot.md","mtime":"2020-05-02T21:02:53.582Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-02T23:10:25.356Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

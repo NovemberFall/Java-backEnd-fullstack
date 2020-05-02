@@ -18,6 +18,7 @@
 
 -----
 * [Project Part2: web app e-ecommerce](p1/intro.md)
-    * [p2: introduction to SpringBoot](p2/intoSpringBoot.md)
+    * [ch1: introduction to SpringBoot](p2/intoSpringBoot.md)
+        * [1. initialize SpringBoot Project](p2/initSpringBoot.md)
 * [End](end/SUMMARY.md)
 
