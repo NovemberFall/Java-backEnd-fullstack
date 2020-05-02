@@ -1,10 +1,9 @@
 # Summary
 
-* [Introduction](README.md)
+* [Java Full Stack Project - Introduction](README.md)
 
----
-
-* [Project1: web app e-ecommerce](p1/intro.md)
+-----
+* [Project Part1: web app e-ecommerce](p1/intro.md)
     * [Ch1: introduction to Web fullStack](ch1/intoCh1.md)
         * [1. Precondition](ch1/pre.md)
         * [2. web app registration](ch1/register.md)
@@ -17,7 +16,8 @@
         * [2. business object](ch2/business.md)
         * [Summary](ch2/WRAPUP.md)
 
----
-
+-----
+* [Project Part2: web app e-ecommerce](p1/intro.md)
+    * [p2: introduction to SpringBoot](p2/intoSpringBoot.md)
 * [End](end/SUMMARY.md)
 
