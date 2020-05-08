@@ -17,7 +17,7 @@
         * [Summary](ch2/WRAPUP.md)
 
 -----
-* [Project Part2: Java & SpringBoot](p1/intro.md)
+* [Project Part2: Java & SpringBoot](p2/intro.md)
     * [ch1: introduction to SpringBoot](p2/intoSpringBoot.md)
         * [1. initialize SpringBoot Project](p2/initSpringBoot.md)
         * [2. run the first project](p2/firstProject.md)
