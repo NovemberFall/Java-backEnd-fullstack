@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ch1: introduction to SpringBoot · GitBook</title>
+        <title>2. run the first project · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -53,10 +53,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="initSpringBoot.html" />
+    <link rel="next" href="../end/SUMMARY.html" />
     
     
-    <link rel="prev" href="../p1/intro.html" />
+    <link rel="prev" href="initSpringBoot.html" />
     
 
     </head>
@@ -300,7 +300,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="3.1.1" data-path="intoSpringBoot.html">
+        <li class="chapter " data-level="3.1.1" data-path="intoSpringBoot.html">
             
                 <a href="intoSpringBoot.html">
             
@@ -327,7 +327,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.1.2" data-path="firstProject.html">
+        <li class="chapter active" data-level="3.1.1.2" data-path="firstProject.html">
             
                 <a href="firstProject.html">
             
@@ -393,7 +393,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ch1: introduction to SpringBoot</a>
+        <a href=".." >2. run the first project</a>
     </h1>
 </div>
 
@@ -408,110 +408,118 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="p2-introduction-to-springboot">p2: introduction to SpringBoot</h1>
+                                <h1 id="2-run-the-first-project">2. run the first project</h1>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.2.1.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>/&gt;</span> <span class="hljs-comment">&lt;!-- lookup parent from repository --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.lin<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>missyou<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>missyou<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>Demo project for Spring Boot<span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
+</code></pre>
 <ul>
-<li><p>servlet jsp asp (&#x6700;&#x65E9;&#x5FAE;&#x8F6F;&#x51FA;&#x73B0;asp), jsp &#x5F00;&#x59CB;&#x6A21;&#x4EFF;asp</p>
-</li>
-<li><p>structs2 action</p>
-</li>
-<li><p>spring: IOC(&#x63A7;&#x5236;&#x53CD;&#x8F6C;&#xFF0C;&#x7F16;&#x7A0B;&#x539F;&#x5219;), AOP  </p>
-</li>
-<li><p>springmvc &#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x5B9E;&#x73B0; Restful API</p>
-</li>
-<li><p>springboot: &#x7EA6;&#x5B9A;&#x5927;&#x4E8E;&#x914D;&#x7F6E;, springmvc&#x914D;&#x7F6E;&#x8FC7;&#x4E8E;&#x7E41;&#x7410;, </p>
-</li>
+<li>version <code>2.2.1</code></li>
 </ul>
-<pre><code class="lang-java">Interface &#x62BD;&#x8C61; &#x9762;&#x5411;&#x63A5;&#x53E3;/&#x62BD;&#x8C61; &#x9762;&#x5411;&#x5177;&#x4F53;
-<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-class"><span class="hljs-keyword">interface</span>
-<span class="hljs-title">xml</span>
-&#x81EA;&#x52A8;&#x88C5;&#x914D;
-<span class="hljs-title">IOC</span> &#x4F9D;&#x8D56;&#x6CE8;&#x5165; -&gt; &#x5FC5;&#x987B;&#x8981;&#x9762;&#x5BF9;&#x7684;
-</span></code></pre>
+<hr>
+<h2 id="how-to-change-port">how to change port</h2>
 <ul>
-<li><p>springcoud : &#x5982;&#x679C;&#x8981;&#x5B66;&#x4E60;&#xFF0C; &#x5FC5;&#x987B;&#x5148;&#x638C;&#x63E1;springboot &#x7684;&#x57FA;&#x7840;</p>
+<li><code>application.properties</code></li>
+</ul>
+<pre><code class="lang-java">server.port = <span class="hljs-number">8081</span>
+</code></pre>
+<ul>
+<li><p>run springboot project</p>
 </li>
-<li><p>Hibernate ORM (&#x5BF9;&#x8C61;&#x5173;&#x7CFB;&#x6620;&#x5C04;), &#x5F53;&#x5E74;&#x5FAE;&#x8F6F;&#x5F04;&#x51FA;Hibernate, EntityFramework ORM</p>
+<li><p>&#x5176;&#x5B9E;&#x7528; spirngboot &#x6846;&#x67B6;&#x5F00;&#x53D1;&#x5E94;&#x7528;&#x662F;&#x975E;&#x5E38;&#x5FEB;&#x7684;&#xFF0C;&#x6BD4;&#x5F88;&#x591A;&#x6846;&#x67B6;&#x90FD;&#x5FEB;&#xFF0C;&#x6BD4;python php &#x8FD8;&#x8981;&#x5FEB;</p>
 </li>
-<li><p>ssh (&#x5F88;&#x957F;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#xFF0C;java&#x90FD;&#x662F;&#x56F4;&#x7ED5;ssh &#x6846;&#x67B6;)</p>
-</li>
-<li><p>ssm springmvc-spring mybatis</p>
-</li>
-<li><p>Anders Hejlsberg C# Pascal (dephi), &#x4ED6;&#x4E5F;&#x5199;&#x4E86; TypeScript (C# &#x7684;&#x7FFB;&#x7248;, &#x62EF;&#x6551;&#x4E86;C#)
-&#x4ED6;&#x8BBE;&#x8BA1;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x7B80;&#x5355;&#xFF0C;&#x6613;&#x7528;</p>
-</li>
-<li><p>IOC DI :</p>
-<ol>
-<li><p>Inversion Of Controll &#x63A7;&#x5236;&#x53CD;&#x8F6C;</p>
-</li>
-<li><p>Dependency Injection  &#x4F9D;&#x8D56;&#x6CE8;&#x5165;</p>
-</li>
-</ol>
+<li><p>&#x73B0;&#x5728;&#x5F00;&#x59CB;&#x914D;&#x7F6E;<code>api</code>&#xFF0C; &#x7528;&#x6765;&#x5199;springboot &#x8DEF;&#x7531;<code>route</code></p>
 </li>
 </ul>
-<pre><code>1. &#x4F60;&#x81EA;&#x5DF1;&#x8981;&#x7406;&#x89E3;
-2. &#x4E0D;&#x80FD;&#x7167;&#x642C;
-3. &#x4E0D;&#x80FD;&#x7528;spring&#x89E3;&#x91CA;
-4. &#x4E3A;&#x4EC0;&#x4E48;
-</code></pre><pre><code>2.2.1.RELEASE
+<p><img src="img/2020-05-08-00-02-33.png" alt=""></p>
+<ul>
+<li>&#x4E4B;&#x6240;&#x4EE5;&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x7248;&#x672C;api, &#x56E0;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x8001;&#x7528;&#x6237;&#x4E0D;&#x66F4;&#x65B0;&#x7248;&#x672C;&#x8FD8;&#x5728;&#x7528;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;</li>
+</ul>
+<p><img src="img/2020-05-08-00-04-25.png" alt=""></p>
+<ul>
+<li>&#x6211;&#x4EEC;&#x5199;&#x4E86;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;class</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.lin.missyou.api.v1;
 
-2 &#x4EE3;&#x8868;&#x4E3B;&#x7248;&#x672C;
-.2. &#x4EE3;&#x8868;&#x6B21;&#x8981;&#x7248;&#x672C; &#x589E;&#x52A0;&#x65B0;&#x7279;&#x6027;&#xFF0C;&#x53D1;&#x5E03;&#x5C0F;&#x7684;&#x65B0;&#x7279;&#x6027; &#x8981;&#x4FDD;&#x8BC1;&#x517C;&#x5BB9;
-.1 &#x4EE3;&#x8868;&#x589E;&#x91CF;&#x7248;&#x672C; bug &#x4FEE;&#x590D;
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BannerController</span> </span>{
+    <span class="hljs-comment">//MVC SpringMVC</span>
+    <span class="hljs-comment">//Controller Model View</span>
 
-RELEASE &#x53D1;&#x5E03;&#x7248;&#x672C;&#xFF0C;&#x91CC;&#x7A0B;&#x7891;&#x7248;&#x672C;
-
-RC
-Alpha
-Beta
-GA
-SNAPSHOT &#x6BD4;&#x8F83;&#x7A33;&#x5B9A; &#x6301;&#x7EED;&#x6539;&#x8FDB;
-
-General Availbability (&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x9002;&#x7528;GA &#x7248;&#x672C;)
-
-
-Maven(&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;)   Gradle(&#x7528;Gradle, &#x4E0D;&#x9700;&#x8981;&#x5199;XML)
-Maven &#x6709;&#x4E00;&#x4E2A;&#x4E2D;&#x592E;&#x4ED3;&#x5E93;&#xFF0C;&#x653E;&#x7740;&#x5404;&#x79CD;&#x5305;&#xFF0C; Gradle &#x4E5F;&#x5728;&#x5F15;&#x7528; Maven &#x7684;&#x4E2D;&#x592E;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;
-
-XML
-Groovy DSL
-SQL
-
-DPL
-
-reuse : 
-
-
-&#x963F;&#x91CC;&#x6709;&#x4E00;&#x4E2A; fastjson &#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x9605;&#x8BFB;&#x5B66;&#x4E60;
-</code></pre><ul>
-<li><p>download maven</p>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">test</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello World!&quot;</span>;
+    }
+}
+</code></pre>
+<ul>
+<li>&#x65E0;&#x8BBA;&#x5199;&#x591A;&#x5C11;&#x4E2A;&#xFF0C;springboot &#x90FD;&#x4E0D;&#x4F1A;&#x7BA1;&#x4F60;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x8981;&#x8BA9;&#x524D;&#x7AEF;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A;method, &#x90A3;&#x5C31;&#x5FC5;&#x987B;&#x63A5;&#x53D7;springboot &#x7BA1;&#x7406;</li>
+</ul>
+<hr>
+<h2 id="responsebody">ResponseBody</h2>
+<ul>
+<li><p>&#x5C3D;&#x7BA1;class name &#x662F; controller, &#x4F46;&#x662F;&#x53EA;&#x662F;&#x666E;&#x901A;&#x7C7B;&#xFF0C;&#x60F3;&#x8981;&#x8BA9;springboot &#x8BC6;&#x522B;&#x5C31;&#x5FC5;&#x987B;</p>
 </li>
-<li><p><code>brew install maven</code></p>
+<li><p>run </p>
 </li>
 </ul>
-<p><img src="img/2020-05-02-13-51-49.png" alt=""></p>
-<p>&#x5F00;&#x53D1;&#x914D;&#x7F6E;&#xFF1A;</p>
-<pre><code class="lang-java">JDK
-Maven
+<p><img src="img/2020-05-08-00-23-22.png" alt=""></p>
+<ul>
+<li><p>&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x914D;&#x7F6E;&#x5230; <code>8081</code> &#x7AEF;&#x53E3;</p>
+</li>
+<li><p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5F15;&#x5165;&#x4E00;&#x4E2A; <code>HttpServletResponse</code> </p>
+</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-meta">@Controller</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BannerController</span> </span>{
+    <span class="hljs-comment">//MVC SpringMVC</span>
+    <span class="hljs-comment">//Controller Model View</span>
 
-JetBrain Intellij Idea
-
-VsCode Eclipse Idea
-
-Visual Studio &#xFF08;&#x5B87;&#x5B99;&#x7B2C;&#x4E00;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#xFF09;
-
-&#x521D;&#x59CB;&#x5316;&#x4F18;&#x5148;&#x7EA7;
-<span class="hljs-number">1</span>. Idea
-<span class="hljs-number">2</span>. SpringBoot &#x521D;&#x59CB;&#x5316;
-<span class="hljs-number">3</span>. Maven
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/test&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">(HttpServletResponse response)</span></span>{
+        <span class="hljs-keyword">try</span> {
+            response.getWriter().write(<span class="hljs-string">&quot;Hello World!&quot;</span>);
+        } <span class="hljs-keyword">catch</span> (IOException e) {
+            e.printStackTrace();
+        }
+<span class="hljs-comment">//        return &quot;Hello World!&quot;;</span>
+    }
+}
 </code></pre>
-<h2 id="&#x5E38;&#x7528;java-&#x547D;&#x4EE4;">&#x5E38;&#x7528;java &#x547D;&#x4EE4;</h2>
-<p>&#x67E5;&#x770B;&#x5F53;&#x524D;java &#x7248;&#x672C;</p>
-<pre><code class="lang-sh">java -version
+<p><img src="img/2020-05-08-00-29-26.png" alt=""></p>
+<h2 id="responsebody-&#x7B80;&#x5316;-servletresponse"><code>ResponseBody</code> &#x7B80;&#x5316; <code>ServletResponse</code></h2>
+<pre><code class="lang-java"><span class="hljs-meta">@Controller</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BannerController</span> </span>{
+    <span class="hljs-comment">//MVC SpringMVC</span>
+    <span class="hljs-comment">//Controller Model View</span>
+
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/test&quot;</span>)
+    <span class="hljs-meta">@ResponseBody</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">test</span><span class="hljs-params">()</span></span>{
+<span class="hljs-comment">//            response.getWriter().write(&quot;Hello World!&quot;);</span>
+
+    <span class="hljs-comment">//response header text/plain</span>
+    <span class="hljs-comment">//application/json</span>
+    <span class="hljs-comment">//POSTMAN</span>
+    <span class="hljs-comment">//Junit test</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello World!&quot;</span>;
+    }
+}
 </code></pre>
-<p>&#x67E5;&#x770B;quanbjava &#x7248;&#x672C;</p>
-<pre><code class="lang-sh">/usr/libexec/java_home -v
-</code></pre>
-<h1 id="redis-&#x5B89;&#x88C5;&#x4E0E;&#x5E38;&#x89C1;&#x547D;&#x4EE4;mac">Redis &#x5B89;&#x88C5;&#x4E0E;&#x5E38;&#x89C1;&#x547D;&#x4EE4;(Mac)</h1>
+<ul>
+<li>&#x540C;&#x65F6;&#xFF0C;responsebody &#x8FD8;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x4E2D;&#x6587;&#x7F16;&#x7801;&#x95EE;&#x9898;</li>
+</ul>
+<p><img src="img/2020-05-08-00-35-52.png" alt=""></p>
 
                                 
                                 </section>
@@ -539,12 +547,12 @@ Visual Studio &#xFF08;&#x5B87;&#x5B99;&#x7B2C;&#x4E00;&#x5F00;&#x53D1;&#x5DE5;&#
 
             
                 
-                <a href="../p1/intro.html" class="navigation navigation-prev " aria-label="Previous page: Project Part2: web app e-ecommerce">
+                <a href="initSpringBoot.html" class="navigation navigation-prev " aria-label="Previous page: 1. initialize SpringBoot Project">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="initSpringBoot.html" class="navigation navigation-next " aria-label="Next page: 1. initialize SpringBoot Project">
+                <a href="../end/SUMMARY.html" class="navigation navigation-next " aria-label="Next page: End">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -555,7 +563,7 @@ Visual Studio &#xFF08;&#x5B87;&#x5B99;&#x7B2C;&#x4E00;&#x5F00;&#x53D1;&#x5DE5;&#
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ch1: introduction to SpringBoot","level":"3.1.1","depth":2,"next":{"title":"1. initialize SpringBoot Project","level":"3.1.1.1","depth":3,"path":"p2/initSpringBoot.md","ref":"p2/initSpringBoot.md","articles":[]},"previous":{"title":"Project Part2: web app e-ecommerce","level":"3.1","depth":1,"path":"p1/intro.md","ref":"p1/intro.md","articles":[{"title":"ch1: introduction to SpringBoot","level":"3.1.1","depth":2,"path":"p2/intoSpringBoot.md","ref":"p2/intoSpringBoot.md","articles":[{"title":"1. initialize SpringBoot Project","level":"3.1.1.1","depth":3,"path":"p2/initSpringBoot.md","ref":"p2/initSpringBoot.md","articles":[]},{"title":"2. run the first project","level":"3.1.1.2","depth":3,"path":"p2/firstProject.md","ref":"p2/firstProject.md","articles":[]}]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"p2/intoSpringBoot.md","mtime":"2020-05-02T21:02:53.582Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-08T07:39:43.341Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2. run the first project","level":"3.1.1.2","depth":3,"next":{"title":"End","level":"3.2","depth":1,"path":"end/SUMMARY.md","ref":"end/SUMMARY.md","articles":[]},"previous":{"title":"1. initialize SpringBoot Project","level":"3.1.1.1","depth":3,"path":"p2/initSpringBoot.md","ref":"p2/initSpringBoot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css"}},"file":{"path":"p2/firstProject.md","mtime":"2020-05-08T07:39:38.308Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-08T07:39:43.341Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
