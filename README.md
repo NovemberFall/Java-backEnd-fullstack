@@ -30,4 +30,4 @@ https://novemberfall.github.io/Algorithm-FullStack/
 
 - LeetCode-Algorithm
 
-https://novemberfall.github.io/LeetCode-Algorithm/
+https://novemberfall.github.io/LeetCode-NoteBook
