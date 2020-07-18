@@ -13,6 +13,8 @@
         * [1. config| call server API](ch2/config.md)
         * [2. business object | encupsulation of HTTP Request](ch2/business.md)
         * [3. Async && await](ch2/async.md)
+        * [4. use LinUI Promisic](ch2/promisic.md)
+        * [5. convert all callback to async and await](ch2/promisic2.md)
         * [Summary](ch2/WRAPUP.md)
 
 -----
