@@ -11,7 +11,8 @@
         * [Summary](ch1/WRAPUP.md)
     * [Ch2: Http Request](ch2/intoCh2.md)
         * [1. config| call server API](ch2/config.md)
-        * [2. business object](ch2/business.md)
+        * [2. business object | encupsulation of HTTP Request](ch2/business.md)
+        * [3. Async && await](ch2/async.md)
         * [Summary](ch2/WRAPUP.md)
 
 -----
