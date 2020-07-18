@@ -2,7 +2,7 @@
 
 ![logo](_media/icon.png)
 
-# Tom <small>leetCode</small>
+# Tom <small>Java FullStack</small>
 
 > LeetCode Algorithm >>> 一个已经疯癫的程序猿
 
