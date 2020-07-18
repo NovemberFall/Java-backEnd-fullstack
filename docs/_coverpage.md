@@ -4,7 +4,7 @@
 
 # Tom <small>Java FullStack</small>
 
-> LeetCode Algorithm >>> 一个已经疯癫的程序猿
+> Java BackEnd FullStack >>> 一个已经疯癫的程序猿
 
 - Front-End: WeChat App
 - Back-End: SpringBoot API
