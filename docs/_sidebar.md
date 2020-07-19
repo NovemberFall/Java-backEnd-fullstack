@@ -16,6 +16,7 @@
         * [4. use LinUI Promisic](ch2/promisic.md)
         * [5. convert all callback to async and await](ch2/promisic2.md)
         * [6. get the banner data](ch2/banner.md)
+        * [7. banner carousel(轮播图) implementation | 插槽](ch2/carousel.md)
         * [Summary](ch2/WRAPUP.md)
 
 -----
