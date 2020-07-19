@@ -36,7 +36,7 @@ import { promisic } from "./util";
 class Http {
     static async request({ url, data, callback, method = 'GET' }) {
         //wx.request
-        await promisic(wx.request)({
+        return await promisic(wx.request)({
             url: `${config.apiBaseUrl}${url}`,
             data,
             method,
