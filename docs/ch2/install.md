@@ -23,3 +23,7 @@
 
 ![](img/2020-07-20-01-03-03.png)
 - 这个插件强烈推荐！！！
+
+
+- 现在把 `miniprogram_npm`, 底下的 `lin-ui` 也给删掉， 然后我们去再用npm install
+  - 这样 `node_modules` 就又回来了, 同时再去小程序开发里 `build npm`
