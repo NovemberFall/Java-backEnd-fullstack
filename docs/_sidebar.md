@@ -18,7 +18,7 @@
         * [6. get the banner data](ch2/banner.md)
         * [7. banner carousel(轮播图) implementation | 插槽](ch2/carousel.md)
         * [8. npm semver synatx](ch2/semver.md)
-        * [9. Lin UI install](ch2/semver.md)
+        * [9. Lin UI install](ch2/install.md)
         * [Summary](ch2/WRAPUP.md)
 
 -----
