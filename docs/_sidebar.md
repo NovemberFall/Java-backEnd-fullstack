@@ -1,7 +1,7 @@
-* [Java backEnd fullstack](README.md)
+* [Java FullStack](README.md)
 
 -----
-* [Project Part1: web app e-ecommerce](p1/intro.md)
+* [E-commerce Part1: web app e-ecommerce](p1/intro.md)
     * [Ch1: introduction to Web fullStack](ch1/intoCh1.md)
         * [1. Precondition](ch1/pre.md)
         * [2. web app registration](ch1/register.md)
@@ -22,7 +22,7 @@
         * [Summary](ch2/WRAPUP.md)
 
 -----
-* [Project Part2: Java & SpringBoot](p2/intro.md)
+* [E-commerce Part2: Java & SpringBoot](p2/intro.md)
     * [ch1: introduction to SpringBoot](p2/intoSpringBoot.md)
         * [1. initialize SpringBoot Project](p2/initSpringBoot.md)
         * [2. run the first project](p2/firstProject.md)
