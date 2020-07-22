@@ -1,6 +1,9 @@
 * [Java FullStack](README.md)
 
 -----
+* [Item Recommendation](itemRecommand/intro.md)
+
+-----
 * [E-commerce Part1: web app e-ecommerce](p1/intro.md)
     * [Ch1: introduction to Web fullStack](ch1/intoCh1.md)
         * [1. Precondition](ch1/pre.md)
