@@ -133,6 +133,8 @@ p {
 
 - e.g. .intro - selects all elements with class="intro"
 
+---
+
 #### Exercise 2:
 
 ```html
@@ -191,3 +193,4 @@ p {
 }
 /* You can also use ID selector to write your CSS as well */
 ```
+
