@@ -57,7 +57,8 @@
   - use it to group elements for purposes.
   
 - recall<span>标签
-  - a generic inline container for phrasing content.
+  - a generic inline container for phrasing content. 
+    (a标签是inline, 就是并排在一行)
   - does not inherently represent anything.
   - use it to group elements for purposes.
 
@@ -91,5 +92,10 @@
     defines a footer for a document or section which contain information about 
     its containing element.
 
+---
 
+![](img/2020-07-22-20-27-25.png)
 
+### 现在开始动手来写一下这个网页结构
+
+- 
