@@ -124,4 +124,70 @@ p {
 }
 ```
 
+---
 
+- class
+  -	The class selector selects elements with a specific class attribute.
+  -	To select elements with a specific class, write a period (.) character, 
+    followed by the name of the class.
+
+- e.g. .intro - selects all elements with class="intro"
+
+#### Exercise 2:
+
+```html
+<!-- h1 - set font to 30px， font size to 30px-->
+
+<!-- date - set font color to purple， font size to 24px -->
+
+<!-- author - set font color to green， font size to 24px -->
+
+<!-- news content - set font color to blue， font size to 18px-->
+```
+
+
+- Answer:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<!-- 标题 - 颜色为红色， 字体为30px-->
+<!-- 日期 - 颜色为紫色， 字体为24px -->
+<!-- 作者 - 颜色为绿色， 字体为24px -->
+<!-- 新闻内容 - 颜色为兰色， 字体为18px-->
+
+
+<h1>Amazon picks 20 finalists for its second headquarters</h1>
+<p>by <span class="author">Kaya Yurieff</span> from cnn <span class="date">January 18, 2018: 10:44 AM ET</span> </p>
+<p>Amazon has released a "short" list of cities it's considering for its second headquarters.</p>
+<p>The 20 potential cities are Atlanta; Austin; Boston; Chicago; Columbus, Ohio; Dallas; Denver; Indianapolis; Los Angeles; Miami; Montgomery County, Maryland; Nashville; Newark; New York City; Northern Virginia; Philadelphia; Pittsburgh; Raleigh; Toronto and Washington, D.C.</p>
+
+</body>
+</html>
+```
+
+```css
+h1 {
+  color: red;
+  font-size: 30px;
+}
+p {
+  color: blue;
+  font-size: 18px;
+}
+.author {
+  color: green;
+  font-size: 24px;
+}
+.date {
+  color: purple;
+  font-size: 24px;
+}
+/* You can also use ID selector to write your CSS as well */
+```
