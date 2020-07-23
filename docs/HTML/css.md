@@ -35,3 +35,14 @@
     <link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 ```
+
+---
+![](img/2020-07-22-21-48-05.png)
+
+- The selector  
+  -  points to the HTML element you want to style.  
+- The declaration block 
+  - contains one or more declarations separated by semicolons.
+  - each declaration includes a CSS property name and a value, separated by a colon.
+  - always ends with a semicolon
+  - declaration blocks are surrounded by curly braces.
