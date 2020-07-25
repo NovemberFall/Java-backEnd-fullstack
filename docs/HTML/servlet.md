@@ -263,6 +263,124 @@
 ```
 
 
+```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json");
+		PrintWriter writer = response.getWriter();
+		
+		JSONArray array = new JSONArray(); 
+		try {
+			array.put(new JSONObject().put("name", "abcd").put("address", "San Francisco")
+					.put("time", "01/01/2020"));
+			array.put(new JSONObject().put("name", "1234").put("address", "San Jose")
+					.put("time", "01/01/2020"));
+		}catch(JSONException e) {
+			e.printStackTrace();
+		}
+		writer.print(array);
+		writer.close();
+	}
+```
+
+
+
+- Step 5, save your changes and restart your server, then use the following URL to test the result: 
+  `http://localhost:8080/Jupiter/recommendation`
+
+
+![](img/2020-07-24-22-56-31.png)
+
+
+---
+
+## Add RpcHelper Utility Class
+
+- Step 1, to reduce some duplicate codes, add a new utility class called RpcHelper 
+  to handle all rpc parsing codes. Right click on package ‘rpc’ and 
+  choose New->Class. Careful, **choose class instead of servlet**.
+
+![](img/2020-07-24-23-14-02.png)
+
+- Step 2, create two functions in this class, named `writeJsonObject` and `writeJsonArray` 
+
+- Step 3 Let’s implement writeJsonArray first
+
+- Step 4, similar thing for writeJsonObject, try to implement yourself.
+
+
+```java
+public class RpcHelper {
+	// Writes a JSONArray to http response.
+	public static void writeJsonArray(HttpServletResponse response, JSONArray array) throws IOException{
+		response.setContentType("application/json");
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		PrintWriter out = response.getWriter();	
+		out.print(array);
+		out.close();
+	}
+	
+	// Writes a JSONObject to http response.
+	public static void writeJsonObject(HttpServletResponse response, JSONObject obj) throws IOException {		
+		response.setContentType("application/json");
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		PrintWriter out = response.getWriter();	
+		out.print(obj);
+		out.close();
+	}
+
+}
+```
+
+
+
+
+- Step 5, now update both SearchItem and RecommendItem to use the helper function.
+
+
+- `SearchItem.java`
+
+```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+//		response.setContentType("text/html");
+		
+		JSONArray array = new JSONArray();
+		try {
+			array.put(new JSONObject().put("username", "abcd"));
+			array.put(new JSONObject().put("username", "1234"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		RpcHelper.writeJsonArray(response, array);
+	}
+```
+
+
+- `RecommandItem.java`
+
+```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		JSONArray array = new JSONArray(); 
+		try {
+			array.put(new JSONObject().put("name", "abcd").put("address", "San Francisco")
+					.put("time", "01/01/2020"));
+			array.put(new JSONObject().put("name", "1234").put("address", "San Jose")
+					.put("time", "01/01/2020"));
+		}catch(JSONException e) {
+			e.printStackTrace();
+		}
+		RpcHelper.writeJsonArray(response, array);
+	}
+```
+
+
+![](img/2020-07-25-00-00-00.png)
+
+- 得到的结果是一致的
+
+
 
 
 
