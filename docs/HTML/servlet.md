@@ -81,6 +81,188 @@
 - Step 6, update doGet to return data in HTML format.
 
 
+```java
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html");
+		PrintWriter writer = response.getWriter();
+		
+		writer.println("<html><body>");
+		writer.println("<h1>Hello World</h1>");
+		writer.println("</body></html>");
+		
+		writer.close();	
+	}
+```
+
+![](img/2020-07-24-21-31-23.png)
+
+- restart server
+
+![](img/2020-07-24-21-31-39.png)
+
+- postman
+
+![](img/2020-07-24-21-32-07.png)
+
+
+- Step 8, since our project provides dynamic services to users, we should be able to 
+  return different results based on different parameters from user input. 
+  Let’s try to add the following code into doGet method in SearchItem.java.
+
+
+```java
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		response.setContentType("text/html");//告诉browser, 我们set的file的格式是html
+        //如果这里不call这个method, browser 也会默认为html format
+
+		PrintWriter writer = response.getWriter();//得到了一个response write
+		
+		if (request.getParameter("username") != null) {//检查username 是否存在 
+			String username = request.getParameter("username");
+			
+			writer.println("<html><body>");
+			writer.println("<h1>Hello " + username + "</h1>");
+			writer.println("</body></html>");
+		}
+		
+		writer.close();	
+	}
+```
+
+
+- Step 9, save the change and open a new tab in your browser. In the address bar, type in:
+
+- `http://localhost:8080/Jupiter/search?username=1234`
+
+![](img/2020-07-24-21-45-40.png)
+
+- 这里的逻辑是： hit `enter` 以后， 到 servlet, `doGet` method, 
+
+
+![](img/2020-07-24-21-49-29.png)
+
+---
+
+- Step 10, return a JSON object in response body. 
+
+- [10.1 Download JSON to download JSON library, visit](http://www.java2s.com/Code/JarDownload/java-json/java-json.jar.zip) 
+
+- Unzip it and you will see a java-json.jar file. Click that file and use Command-c (Mac) to copy it. 
+  Then in your Jupiter project’s WebContent/WEB-INF/lib, use Command-v (Mac) to paste it. 
+
+![](img/2020-07-24-22-04-00.png)
+
+
+- Step 10.2 in your SearchItem.java doGet method. Add the  
+
+```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+//		response.setContentType("text/html");
+		response.setContentType("application/json");
+		PrintWriter writer = response.getWriter();
+		
+		if (request.getParameter("username") != null) {
+			String username = request.getParameter("username");
+			JSONObject obj = new JSONObject();
+			try {
+				obj.put("username", username);
+			}catch(JSONException e) {
+				e.printStackTrace();
+			}
+			writer.print(obj);
+		}
+		
+		writer.close();	
+	}
+```
+
+
+- Step 10.4 save the changes. Restart Tomcat server, and type in the following URL in your browser: 
+  `http://localhost:8080/Jupiter/search?username=abcd`
+
+
+![](img/2020-07-24-22-12-43.png)
+
+
+- Step 10.5, in the future we’ll return a list of nearby events for client, 
+  so let’s try to return a list of usernames first. Open SearchItem.
+  java’s doGet method, change it to, and import org.json.JSONArray.
+
+
+```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+//		response.setContentType("text/html");
+		response.setContentType("application/json");
+		PrintWriter writer = response.getWriter();
+		
+		JSONArray array = new JSONArray();
+		try {
+			array.put(new JSONObject().put("username", "abcd"));
+			array.put(new JSONObject().put("username", "1234"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		writer.print(array);
+		writer.close();
+	}
+```
+
+![](img/2020-07-24-22-16-55.png)
+
+- Step 10.6, save the changes and restart Tomcat server, then use the following URL to test:
+  `http://localhost:8080/Jupiter/search`
+
+![](img/2020-07-24-22-17-46.png)
+
+---
+
+## Create Second Servlet
+
+- Step 1, similar to SearchItem, let’s create another servlet called RecommendItem.java. 
+  Right click on your project ‘Jupiter’, choose New->Servlet. 
+
+
+- Step 2, name it RecommendItem, and make sure the package name is rpc. Click Finish
+
+![](img/2020-07-24-22-45-23.png)
+
+
+- Step 3, after RecommendItem is created, update the url mapping to “/recommendation” at line 13.
+
+![](img/2020-07-24-22-47-05.png)
+
+
+- Step 4, try to implement `doGet()` method in RecommendItem to 
+  return the following JSON Array in response body.
+
+
+```json
+[
+  {
+	“name”: “abcd ”,
+	“address”: “san francisco”,
+	“time”: “01/01/2017”
+  },
+  {
+	“name”: “1234 ”,
+	“address”: “san jose”,
+	“time”: “01/02/2017”
+  }
+]
+```
+
+
 
 
 
