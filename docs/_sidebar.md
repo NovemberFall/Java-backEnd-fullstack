@@ -4,6 +4,7 @@
 * [Item Recommendation](itemRecommand/intro.md)
     * [1. HTML](HTML/intro.md)
     * [2. CSS](HTML/css.md)
+    * [5. Web Application Basics](HTML/webBasics.md)
 
 -----
 * [E-commerce Part1: web app e-ecommerce](p1/intro.md)
