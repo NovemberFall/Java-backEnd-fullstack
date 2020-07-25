@@ -51,9 +51,34 @@
 
 ---
 
+## Create First Java Servlet
+
+- Step 1, open Eclipse. Right click on your project `Jupiter`, choose New->Servlet. 
+
+- Step 2, name it `SearchItem` and the package name is `rpc`, then click Finish.
+
+![](img/2020-07-24-21-04-57.png)
+
+- Eclipse will automatically create a Java class called SearchItem in package rpc for you. 
+
+![](img/2020-07-24-21-06-03.png)
+
+- Step 3, At line 13, change the url mapping to “/search”.
+
+- Step 4, Save your change and right click on ‘Tomcat v9.0 Server at localhost’, 
+  choose `Start`.
 
 
+![](img/2020-07-24-21-09-19.png)
 
+![](img/2020-07-24-21-20-18.png)
+
+#### Or you can test it in Postman:
+
+![](img/2020-07-24-21-23-01.png)
+
+
+- Step 6, update doGet to return data in HTML format.
 
 
 
