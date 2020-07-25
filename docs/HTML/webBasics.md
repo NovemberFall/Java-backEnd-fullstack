@@ -122,3 +122,39 @@
 - run server
 
 ![](img/2020-07-24-18-19-00.png)
+
+---
+
+## 建立一个新的 dynamic project
+
+- Step 1, go to ‘File’ ->’New’->’Dynamic Web Project’
+
+![](img/2020-07-24-19-00-13.png)
+
+- click `finish`
+
+- there should be not error
+
+- Step 3.1, to add a library: right click Jupiter, select ’Properties’.
+
+![](img/2020-07-24-19-03-01.png)
+
+![](img/2020-07-24-19-05-00.png)
+
+- 看到以上这张图所示，说明一切正常
+
+- Step 4, add Jupiter to hosted app.
+  
+- Step 4.1, right click on your ‘Tomcat v9.0 server at localhost’ 
+  and choose ‘Add and Remove’
+
+![](img/2020-07-24-19-06-29.png)
+![](img/2020-07-24-19-06-55.png)
+
+- click `finish`
+
+![](img/2020-07-24-19-07-58.png)
+
+- input address, no problem.
+
+
