@@ -380,7 +380,35 @@ public class RpcHelper {
 
 - 得到的结果是一致的
 
+---
+
+## Design of Our Backend Services
+
+- Several ideas we’ve already mentioned earlier
+  - Using HTTP methods to indicate what kind of operation a client wants to take.
+  - Using HTTP url to indicate which service and data a client want to use and 
+    what kind of data they request.
+  - Every request is separated, there is no support for doing one post request 
+    in several post requests, or doing a delete in a pair of get and post requests.
 
 
+- Why we want to do that?
+  - Operations are directly based on HTTP methods, so that server don’t need to parse extra thing
+  -	URL clearly indicates which resource a client want, easy for client side users to understand.
+  -	Server is running in stateless mode, improve scalability.
 
 
+- These ideas are not only applied to our project, 
+  it’s a widely used pattern in web service design. The name is called `REST` or `RESTful`
+
+
+```
+localhost:8080/create
+localhost:8080/object?user=1234
+```
+
+---
+
+## Register a user account
+
+- [ticket master](http://developer.ticketmaster.com)
