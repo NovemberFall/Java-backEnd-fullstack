@@ -234,6 +234,9 @@ public class TicketMasterClient {
   put the following url: `http://localhost:8080/Jupiter/search?lat=37.38&lon=-122.08` 
   in the address bar.
 
+![](img/2020-07-25-22-08-57.png)
+
+
 
 
 
