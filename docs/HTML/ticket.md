@@ -101,4 +101,99 @@ public class TicketMasterClient {
 }
 ```
 
+---
+
+- Step 3, add a new search method.
+
+```java
+public class TicketMasterClient {
+	private static final String HOST = "https://app.ticketmaster.com";
+	private static final String ENDPOINT = "/discovery/v2/events.json";
+	private static final String DEFAULT_KEYWORD = "event";
+	private static final String API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+	
+	public JSONArray search(double lat, double lon, String keyword) {
+		//if keyword is null, we need to handle
+		if(keyword == null) {
+			keyword = DEFAULT_KEYWORD;
+		}
+		
+		try {//if keyword is Chinese, we need to handle			
+			keyword = URLEncoder.encode(keyword, "UTF-8");
+			//encode 可以处理特殊字符，中文，空格，拉丁文 转译成 URL 可以识别的字符
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		String query = String.format("apikey=%s&latlong=%s,%s&keyword=%s&radius=%s",
+				API_KEY, lat, lon, keyword, 50);
+		String url = HOST + ENDPOINT + "?" + query;
+		StringBuilder responseBody = new StringBuilder();
+		
+		try {
+			HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+			connection.setRequestMethod("GET");
+			int responseCode = connection.getResponseCode();
+			//this line，there are two operations：1. 发送请求 2. get response code 
+			
+			if(responseCode != 200) {//if code is not 200, fail, return empty 
+				return new JSONArray();
+			}
+			//connection.getInputStream();
+			//这里是 getInputStream(), 是因为, client get response as input
+			/**              
+			 *              => output(request)
+			 *     Client ----------------------- Server(Ticket)
+			 *              <= input(response)
+			 */
+			BufferedReader reader = 
+                new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			String line = "";
+			while((line = reader.readLine()) != null) {
+				responseBody.append(line);
+			}
+			reader.close();
+			
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			JSONObject obj = new JSONObject(responseBody.toString());
+			if(!obj.isNull("_embedded")) {
+				JSONObject embedded = obj.getJSONObject("_embedded");	
+				return embedded.getJSONArray("events");
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return new JSONArray();
+	}
+}
+```
+
+---
+
+- Step 4, to test result, create a main function to call your search function.
+
+```java
+	/**
+	 * Main entry to test TicketMasterClient.
+	 */
+	public static void main(String[] args) {
+		TicketMasterClient client = new TicketMasterClient();
+		JSONArray events = client.search(37.38, -122.08, null);
+		try {
+			for (int i = 0; i < events.length(); ++i) {
+				JSONObject event = events.getJSONObject(i);
+				System.out.println(event.toString(2));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+	}	
+```
+
 
