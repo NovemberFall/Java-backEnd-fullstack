@@ -27,6 +27,7 @@
         * [7. banner carousel(轮播图) implementation | 插槽](ch2/carousel.md)
         * [8. npm semver synatx](ch2/semver.md)
         * [9. Lin UI install](ch2/install.md)
+        * [10. LinUI Grid 组件分类六宫格](ch2/grid1.md)
         * [Summary](ch2/WRAPUP.md)
 
 -----
