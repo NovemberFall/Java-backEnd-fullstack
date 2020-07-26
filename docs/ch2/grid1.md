@@ -164,3 +164,50 @@ Component({
 	<s-category-grid grid="{{grid}}" />
 </view>
 ```
+
+---
+
+![](img/2020-07-26-11-04-11.png)
+
+- 但是我们还没有设置样式，所以还不是六宫格效果.
+
+![](img/2020-07-26-11-05-23.png)
+
+- if we look at this sample picture, there are 5 px 边距
+  - `/components/category-grid/index.wxss`  
+
+```css
+/* components/category-grid/index.wxss */
+.container{
+    height: 320rpx;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-container{
+    width:730rpx;
+    height: 300rpx;
+    border: 1px dashed #DCEBE6;
+}
+
+.grid-item{
+    /* height: 200rpx; */
+    /* 这里的高不需要设置，如果高不设置，那图片的高度就是自身的高度 */
+    width: 200rpx;
+    /* 但是宽必须设置，因为这样触摸的范围才足够 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img{
+    width:60rpx;
+    height:60rpx;
+}
+```
+
+![](img/2020-07-26-15-40-48.png)
+
+- 到这里为止，六宫格完成
