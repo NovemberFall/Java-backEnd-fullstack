@@ -139,6 +139,9 @@ public class TicketMasterClient {
 			if(responseCode != 200) {//if code is not 200, fail, return empty 
 				return new JSONArray();
 			}
+			System.out.println("Sending requets to url: " + url);
+			System.out.println("Response code: " + responseCode);
+
 			//connection.getInputStream();
 			//这里是 getInputStream(), 是因为, client get response as input
 			/**              
@@ -195,5 +198,65 @@ public class TicketMasterClient {
 		}	
 	}	
 ```
+
+- if result 不完整，是因为 `response` 太多，console 没办法显示全部。
+  - 我们可以设置 eclipse, 
+
+![](img/2020-07-25-20-30-50.png)
+
+- 我们可以设置 `Limit console output`
+
+![](img/2020-07-25-20-31-40.png)
+
+- 现在这是我们所要的结果
+
+---
+
+
+## Connect TicketMaster API with SearchItem Servlet
+
+- Step 1, Update `doGet()` method in rpc/SearchItems.java to use the TicketMasterClient.
+
+```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		double lat = Double.parseDouble(request.getParameter("lat"));
+		double lon = Double.parseDouble(request.getParameter("lon"));
+
+		TicketMasterClient client = new TicketMasterClient();
+		RpcHelper.writeJsonArray(response, client.search(lat, lon, null));
+		
+	}
+```
+
+- Step 2, Save your changes and restart Tomcat server. Open your browser(or postman) and 
+  put the following url: `http://localhost:8080/Jupiter/search?lat=37.38&lon=-122.08` 
+  in the address bar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
