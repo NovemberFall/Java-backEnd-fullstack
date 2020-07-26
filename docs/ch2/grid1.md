@@ -33,11 +33,11 @@
 ```html
 <view class="container">
 	<l-grid>
-		<block wx:for="{{}}">
+		<block wx:for="{{grid}}">
 			<l-grid-item>
 				<view>
-					<image src="{{}}" />
-					<text>{{}}</text>
+					<image src="{{item.img}}" />
+					<text>{{item.title}}</text>
 				</view>
 			</l-grid-item>
 		</block>
@@ -50,6 +50,8 @@
 - create `model/category.js`
 
 ```js
+import { Http } from "../utils/http";
+
 class Category {
     static async getGridCategory() {
         return await Http.request({
@@ -63,5 +65,102 @@ export {
 }
 ```
 
-- update `home.js`
+- update `pages/home/home.js`
 
+```js
+import { config } from "../../config/config"
+import { Theme } from "../../model/theme"
+import { Banner } from "../../model/banner"
+import { Category } from "../../model/category"
+
+// pages/home/home.js
+Page({
+
+  /**
+   * Page initial data
+   */
+  data: {
+    themeA: null,
+    bannerB: null,
+    grid: []
+  },
+
+  async onLoad(options) {
+    //在这里使用 async and await 就不需要 callback function
+    this.initAllData()
+  },
+
+  async initAllData() {
+    const themeA = await Theme.getHomeLocationA();
+    const bannerB = await Banner.getHomeLocationB();
+    const grid = await Category.getGridCategory();
+    this.setData({
+      themeA: themeA[0],
+      bannerB,
+      grid
+    })
+  },
+
+```
+
+- updage `components/category-grid/index.js`, 设置 组件属性列表
+
+```js
+// components/category-grid/index.js
+Component({
+  /**
+   * Component properties
+   */
+  properties: {
+    grid: Array
+  },
+
+  /**
+   * Component initial data
+   */
+  data: {
+
+  },
+
+  /**
+   * Component methods
+   */
+  methods: {
+
+  }
+})
+```
+
+- update path `pages/home/home.json`
+
+```json
+{
+  "usingComponents": {
+    "s-category-grid": "/components/category-grid/index"
+  }
+}
+```
+
+- 同时我们需要给 `pages/home/home.wxml` 添加 `category-grid` 组件
+
+```html
+<!--pages/home/home.wxml-->
+<view>
+	<image class="top-theme" src="{{themeA.entrance_img}}" />
+	<swiper
+	 class="swiper"
+	 indicator-dots="{{true}}"
+	 indicator-active-color="#157658"
+	 autoplay="{{true}}"
+	 circular="{{true}}"
+	>
+		<block wx:for="{{bannerB.items}}">
+			<swiper-item>
+				<image class="swiper" src="{{item.img}}" />
+			</swiper-item>
+		</block>
+	</swiper>
+
+	<s-category-grid grid="{{grid}}" />
+</view>
+```
