@@ -200,7 +200,33 @@ public class Item {
 ```
 
 
-- 
+- Step 1.5.4 Create a private constructor to use builder pattern.
+
+
+```java
+public class Item {
+	private String itemId;
+	private String name;
+	private double rating;
+	private String address;
+	private Set<String> categories;
+	private String imageUrl;
+	private String url;
+	private double distance;
+	
+	
+	
+	private Item(ItemBuilder builder) {
+		this.itemId = builder.itemId;
+		this.name = builder.name;
+		this.rating = builder.rating;
+		this.address = builder.address;
+		this.categories = builder.categories;
+		this.imageUrl = builder.imageUrl;
+		this.url = builder.url;
+		this.distance = builder.distance;
+	}
+```
 
 
 
