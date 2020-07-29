@@ -130,6 +130,85 @@ public class Item {
 
 
 
+- Step 1.5.1, Add static class ItemBuilder in Item class. 
+  Copy all fields from Item to ItemBuilder.
+
+
+```java
+	public static class ItemBuilder {
+		private String itemId;
+		private String name;
+		private double rating;
+		private String address;
+		private Set<String> categories;
+		private String imageUrl;
+		private String url;
+		private double distance;
+	}
+```
+
+
+- Step 1.5.2 Generate Setters for all data fields in ItemBuilder
+
+![](img/2020-07-29-01-02-41.png)
+
+```java
+	public static class ItemBuilder {
+		private String itemId;
+		private String name;
+		private double rating;
+		private String address;
+		private Set<String> categories;
+		private String imageUrl;
+		private String url;
+		private double distance;
+		public void setItemId(String itemId) {
+			this.itemId = itemId;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public void setRating(double rating) {
+			this.rating = rating;
+		}
+		public void setAddress(String address) {
+			this.address = address;
+		}
+		public void setCategories(Set<String> categories) {
+			this.categories = categories;
+		}
+		public void setImageUrl(String imageUrl) {
+			this.imageUrl = imageUrl;
+		}
+		public void setUrl(String url) {
+			this.url = url;
+		}
+		public void setDistance(double distance) {
+			this.distance = distance;
+		}
+	}
+```
+
+
+
+- Step 1.5.3 Define a build function to create a ItemBuilder object from Item object.
+
+```java
+		public Item build() {
+			return new Item(this);
+		}
+```
+
+
+- 
+
+
+
+
+
+
+
+
 
 
 
