@@ -215,7 +215,7 @@ public class Item {
 	private double distance;
 	
 	
-	
+	//由于 ItemBuilder 是一个静态嵌套在 Item 里，所以可以直接调用 filed
 	private Item(ItemBuilder builder) {
 		this.itemId = builder.itemId;
 		this.name = builder.name;
@@ -270,8 +270,10 @@ public class Item {
 		return obj;
 	}
 	
-	public static class ItemBuilder {
-		private String itemId;
+    //假如这里没有 static 关键字，那必须先创建 Item 对象，然后你才能调用 ItemBuilder
+    //所以在这个设计思维里，不能没有 static 关键字 ！
+	public static class ItemBuilder {//同时我们还不能把ItemBuilder 单独建立在entry包底下，
+		private String itemId; //因为如果这么做，private Item(ItemBuilder builder), 就无效了  
 		private String name;
 		private double rating;
 		private String address;
@@ -326,14 +328,101 @@ public class Item {
 }	
 ```
 
+- 假如希望设置 `Item` 的 filed is immutable, 就不能用 `set()`
+- 但是我们可以通过 设置 `ItemBuilder` mutable, 可以调用 `set()`
+
+---
+
+- Step 2, use Item class in TicketMaster API to get clean data.
+
+- Step 2.1, add purify method in TicketMasterClient.java to convert JSONArray to a list of items.
+
+
+```java
+	// Convert JSONArray to a list of item objects.
+	private List<Item> getItemList(JSONArray events) throws JSONException {
+		List<Item> itemList = new ArrayList<>();
+
+		return itemList;
+	}
+```
 
 
 
+- Step 2.2, implement some helper methods to fetch data fields which 
+  are included deeply in TicketMaster response body.
+  - 有些 api filed 藏得比较深，所以我们需要通过 helper 来获得这些深入数据  
 
 
+- Step 2.2.1, fetch address from event JSONObject.
+
+![](img/2020-07-29-16-03-17.png)
+
+![](img/2020-07-29-16-06-12.png)
+
+- 可以从图中看到，传进来的根结点 在画圈位置
+
+```java
+	/**
+	 * Helper methods
+	 */
+	private String getAddress(JSONObject event) throws JSONException {
+		if (!event.isNull("_embedded")) {
+			JSONObject embedded = event.getJSONObject("_embedded");
+			if (!embedded.isNull("venues")) {
+				JSONArray venues = embedded.getJSONArray("venues");
+				StringBuilder builder = new StringBuilder();
+				for (int i = 0; i < venues.length(); i++) {// since venues(array) is an array
+					JSONObject venue = venues.getJSONObject(i);
+					if (!venue.isNull("address")) {
+						JSONObject address = venue.getJSONObject("address");
+						if (!address.isNull("line1")) {
+							builder.append(address.getString("line1"));
+						}
+						if (!address.isNull("line2")) {
+							builder.append(",");
+							builder.append(address.getString("line2"));
+						}
+						if (!address.isNull("line3")) {
+							builder.append(",");
+							builder.append(address.getString("line3"));
+						}
+					}
+					if (!venue.isNull("city")) {
+						JSONObject city = venue.getJSONObject("city");
+						builder.append(",");
+						builder.append(city.getString("name"));
+					}
+
+					String result = builder.toString();
+					if (!result.isEmpty()) {
+						return result;
+					}
+				}
+			}
+		}
+		return "";
+	}
+```
 
 
+- Step 2.2.2, fetch imageUrl from event JSONObject. Try to implement this yourself.
 
+```java
+	private String getImageUrl(JSONObject event) throws JSONException {
+		if (!event.isNull("images")) {
+			JSONArray array = event.getJSONArray("images");
+			for (int i = 0; i < array.length(); i++) {
+				JSONObject image = array.getJSONObject(i);
+				if (!image.isNull("url")) {
+					return image.getString("url");
+				}
+			}
+		}
+		return "";
+	}
+
+```
 
 
 
