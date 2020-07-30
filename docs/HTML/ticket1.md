@@ -425,11 +425,171 @@ public class Item {
 ```
 
 
+- Step 2.2.3, fetch Categories from event JSONObject.
+
+![](img/2020-07-29-20-38-56.png)
+
+```java
+	private String getImageUrl(JSONObject event) throws JSONException {
+		if (!event.isNull("images")) {
+			JSONArray array = event.getJSONArray("images");
+			for (int i = 0; i < array.length(); i++) {
+				JSONObject image = array.getJSONObject(i);
+				if (!image.isNull("url")) {
+					return image.getString("url");
+				}
+			}
+		}
+		return "";
+	}
+```
+
+---
+
+- 到这里三个 helper 已经写完
+
+- Step 2.3, implement `getItemList` method.
+
+```java
+	// Convert JSONArray to a list of item objects.
+	private List<Item> getItemList(JSONArray events) throws JSONException {
+		List<Item> itemList = new ArrayList<>();
+		for(int i = 0; i < events.length(); i++) {
+			JSONObject event = events.getJSONObject(i);
+			ItemBuilder builder = new ItemBuilder();
+			if(!event.isNull("id")) {
+				builder.setItemId(event.getString("id"));
+			}
+			if(!event.isNull("name")) {
+				builder.setName(event.getString("name"));
+			}	
+			if(!event.isNull("url")) {
+				builder.setUrl(event.getString("url"));
+			}	
+			if(!event.isNull("distance")) {
+				builder.setDistance(event.getDouble("distance"));
+			}				
+			builder.setAddress(getAddress(event));
+			builder.setCategories(getCategories(event));
+			builder.setImageUrl(getImageUrl(event));
+			
+			itemList.add(builder.build());
+		}
+
+		return itemList;
+	}
+```
+
+---
+
+- Step 2.4, Modify `search` function to use `getItemList` and return a `list` of Item 
+  instead of `JSONArray`. 
+
+```java
+	public List<Item> search(double lat, double lon, String keyword) {
+		// if keyword is null, we need to handle
+		if (keyword == null) {
+			keyword = DEFAULT_KEYWORD;
+		}
+
+		try {// if keyword is Chinese, we need to handle
+			keyword = URLEncoder.encode(keyword, "UTF-8");
+			// encode 可以处理特殊字符，中文，空格，拉丁文 转译成 URL 可以识别的字符
+			// "Java Servlet" => "Java%20Servlet"
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		String query = String.format("apikey=%s&latlong=%s,%s&keyword=%s&radius=%s", API_KEY, lat, lon, keyword, 50);
+		String url = HOST + ENDPOINT + "?" + query;
+		StringBuilder responseBody = new StringBuilder();
+
+		try {
+			// Create a URLConnection instance that represents a connection to the remote
+			// object referred to by the URL. The HttpUrlConnection class allows us to
+			// perform basic HTTP requests without the use of any additional libraries.			
+			HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+			connection.setRequestMethod("GET");
+			
+			// Get the status code from an HTTP response message. To execute the request we
+			// can use the getResponseCode(), connect(), getInputStream() or
+			// getOutputStream() methods.			
+			int responseCode = connection.getResponseCode();
+			// this line，there are two operations：1. 发送请求 2. get response code
+			System.out.println("Sending requets to url: " + url);
+			System.out.println("Response code: " + responseCode);
+
+			if (responseCode != 200) {// if code is not 200, fail, return empty
+//				return new JSONArray();
+				return new ArrayList<>();				
+			}
+			// connection.getInputStream();
+			// 这里是 getInputStream(), 是因为, client get response as input
+			/**
+			 * => output(request) Client ----------------------- Server(Ticket) <=
+			 * input(response)
+			 */
+			BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			String line;
+			while ((line = reader.readLine()) != null) {
+				responseBody.append(line);
+			}
+			reader.close();
+
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			// Extract events array only.			
+			JSONObject obj = new JSONObject(responseBody.toString());
+			if (!obj.isNull("_embedded")) {
+				JSONObject embedded = obj.getJSONObject("_embedded");
+//				return embedded.getJSONArray("events");
+				return getItemList(embedded.getJSONArray("events"));				
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+//		return new JSONArray();
+		return new ArrayList<>();		
+	}
+```
 
 
+- Step 2.5, Update main function accordingly to print item list.
 
+```java
+	/**
+	 * Main entry to test TicketMasterClient.
+	 */
+	public static void main(String[] args) {
+		TicketMasterClient client = new TicketMasterClient();
+//		JSONArray events = client.search(37.38, -122.08, null);
+	
+//		try {
+//			for (int i = 0; i < events.length(); ++i) {
+//				JSONObject event = events.getJSONObject(i);
+//				System.out.println(event.toString(2));
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		List<Item> events = client.search(37.38, -122.08, null);	
+		for(Item event: events) {
+			System.out.println(event.toJSONObject());
+		}
+	}
+```
 
+- Step 2.6, Save your changes. Right click TicketMasterClient.java and select 
+  “Run As Java Application”. Make sure your console in Eclipse 
+  can print something like below.
 
+![](img/2020-07-29-21-50-55.png)
 
 
 
