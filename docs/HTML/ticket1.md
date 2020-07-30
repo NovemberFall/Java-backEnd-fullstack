@@ -591,6 +591,131 @@ public class Item {
 
 ![](img/2020-07-29-21-50-55.png)
 
+---
+
+## use `geoPont` instead `latlong`
+
+- since `ticketMaster API` said to latlong, Filter events by latitude and longitude, 
+  this filter is deprecated(不赞成的) and maybe removed in a future release, 
+  please use `geoPoint` instead
+
+
+#### Step 3, (optional) use geoPoint instead of latlong.
+
+- Since TicketMaster suggested to use `geoPoint` instead of latlong in request, 
+  we can create a helper class to do GeoHash encoding.
+
+- Step 3.1, create a new class under external package and name it `GeoHash`. 
+  Then copy the following code into your class.
+
+```java
+package external;
+
+public class GeoHash {
+	private static final String BASE_32 = "0123456789bcdefghjkmnpqrstuvwxyz";
+
+	private static int divideRangeByValue(double value, double[] range) {
+		double mid = middle(range);
+		if (value >= mid) {
+			range[0] = mid;
+			return 1;
+		} else {
+			range[1] = mid;
+			return 0;
+		}
+	}
+
+	private static double middle(double[] range) {
+		return (range[0] + range[1]) / 2;
+	}
+
+	public static String encodeGeohash(double latitude, double longitude, int precision) {
+		double[] latRange = new double[] { -90.0, 90.0 };
+		double[] lonRange = new double[] { -180.0, 180.0 };
+		boolean isEven = true;
+		int bit = 0;
+		int base32CharIndex = 0;
+		StringBuilder geohash = new StringBuilder();
+
+		while (geohash.length() < precision) {
+			if (isEven) {
+				base32CharIndex = (base32CharIndex << 1) | divideRangeByValue(longitude, lonRange);
+			} else {
+				base32CharIndex = (base32CharIndex << 1) | divideRangeByValue(latitude, latRange);
+			}
+
+			isEven = !isEven;
+
+			if (bit < 4) {
+				bit++;
+			} else {
+				geohash.append(BASE_32.charAt(base32CharIndex));
+				bit = 0;
+				base32CharIndex = 0;
+			}
+		}
+
+		return geohash.toString();
+	}
+
+	public static void main(String[] args) {
+		// Expect to see 'u4pruydqqvj8'
+		System.out.println(encodeGeohash(57.64911, 10.40744, 12));
+	}
+}
+```
+
+- Step 3.2, To test your encode method, you can right click GeoHash.java and select 
+  “Run As Java Application”. Result in console will be the GeoHash 
+  for the given latitude and longitude in main function.
+
+
+![](img/2020-07-29-22-35-49.png)
+
+- Step 3.3, update search method to use `encodeGeoHash()`.
+  - update `TicketMasterClient`'s `serach()`
+
+```java
+		String geoHash = GeoHash.encodeGeohash(lat, lon, 8);
+//		String query = String.format("apikey=%s&latlong=%s,%s&keyword=%s&radius=%s", API_KEY, lat, lon, keyword, 50);
+		String query = String.format("apikey=%s&geoPoint=%s&keyword=%s&radius=%s", API_KEY, geoHash, keyword, 50);
+```
+
+
+---
+
+## Update SearchItem Servlet
+
+- Step 1, Update `doGet()` method in rpc/SearchItems.java to use handled item list
+  returned from TicketMasterClient.
+
+```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		double lat = Double.parseDouble(request.getParameter("lat"));
+		double lon = Double.parseDouble(request.getParameter("lon"));
+
+		TicketMasterClient client = new TicketMasterClient();
+		List<Item> items = client.search(lat, lon, null);
+		JSONArray array = new JSONArray();
+		for (Item item : items) {
+			array.put(item.toJSONObject());
+		}
+//		RpcHelper.writeJsonArray(response, client.search(lat, lon, null));
+		RpcHelper.writeJsonArray(response, array);
+
+	}
+```
+
+
+- Step 2, Save your changes and restart Tomcat server. Open your browser(or postman) 
+  and put the following url: `http://localhost:8080/Jupiter/search?lat=37.38&lon=-122.08` 
+  in the address bar.
+
+![](img/2020-07-29-22-47-55.png)
+
+
 
 
 
