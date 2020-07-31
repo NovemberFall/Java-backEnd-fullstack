@@ -30,6 +30,8 @@
         * [8. npm semver synatx](ch2/semver.md)
         * [9. Lin UI install](ch2/install.md)
         * [10. LinUI Grid 组件分类六宫格](ch2/grid1.md)
+        * [11. LinUI Grid 组件分类六宫格 II](ch2/grid2.md)
+        * [12. Coupon Concept](ch2/concept.md)
         * [Summary](ch2/WRAPUP.md)
 
 -----

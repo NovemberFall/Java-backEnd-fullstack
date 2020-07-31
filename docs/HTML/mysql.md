@@ -28,3 +28,11 @@
   - 7.	Allow multiple users access(add, search, update, delete) the data set 
     at the same time.
 
+- A DBMS allows you to fulfill all requirement above easily.
+
+
+### Create our database by using MAMP
+
+- I have installed `XAMPP`, 这里我就不再介绍 MAMP
+
+
