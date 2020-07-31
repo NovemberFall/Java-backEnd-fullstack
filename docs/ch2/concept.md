@@ -132,12 +132,106 @@ Page({
 
 ```css
 .activity{
+    margin-top: 20rpx;
     width:100%;
     height: 310rpx;
 }
 ```
 
 ![](img/2020-07-30-20-15-28.png)
+
+---
+
+## 背景颜色的设置
+
+
+- 可以小程序官方文档查看 背景颜色的更改
+
+![](img/2020-07-30-20-20-26.png)
+
+- set `home.json`
+
+```json
+{
+  "usingComponents": {
+    "s-category-grid": "/components/category-grid/index"
+  },
+  "backgroundColor" : "#000000"
+}
+```
+
+![](img/2020-07-30-20-52-43.png)
+
+- 我们需要更改样式，让它正常显示, 同时删除默认 `app.wxss` 的样式
+
+- 现在我们设置六宫格的 样式 `category-grid/index.wxss`
+
+```css
+/* components/category-grid/index.wxss */
+.container{
+    height: 320rpx;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+```
+
+
+- 可以通过调试 `Wxml` , 可以发现是在 page 底下
+
+![](img/2020-07-30-20-58-11.png)
+
+
+-  更改 `home.wxsss`
+
+```css
+.top-theme{
+    width:100%;  /*if u can use 100%, don't use 750 rpx*/
+    height: 260rpx;
+    display: flex;
+}
+
+.swiper{
+    width:100%;
+    height: 360rpx;
+}
+
+.activity{
+    margin-top: 20rpx;
+    width: 100%;
+    height: 310rpx;
+    display: flex;
+}
+/* option+command+L */
+```
+
+- 如果想要小程序全局显示背景颜色，可以在 `app.wxss` 里设置
+
+```css
+/**app.wxss**/
+page{
+  background-color: #f5f5f5;
+}
+```
+
+
+![](img/2020-07-30-21-02-48.png)
+
+- 现在一切显示正常了！
+
+
+
+
+
+
+
+
+
+
+
 
 
 
