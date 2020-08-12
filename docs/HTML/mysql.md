@@ -36,3 +36,43 @@
 - I have installed `XAMPP`, 这里我就不再介绍 MAMP
 
 
+
+### MySQL
+
+- An open source DBMS. Widely used.
+
+
+#### Basic Concepts
+
+- **Table**: a collection of attributions. Similar to what you’ve seen in an excel chart. 
+  Each column is an attribute of an entity, and each row is a record/instance of an entity. 
+
+
+
+
+### SQL
+
+- Structured Query Language is a programming language, which is used to communicate 
+  with DBMS. The standard language for relational DBMS.
+
+- Create tables in Java program
+
+- Step 1, Connect to database from our Java program by JDBC
+
+- Just like our Java servlet classes. JDBC provides interfaces and classes for writing 
+  database operations. Technically speaking, JDBC (Java Database Connectivity) 
+  is a standard API that defines how Java programs access database management systems. 
+  Since JDBC is a standard specification, one Java program that uses the JDBC API
+  can connect to any database management system (DBMS), 
+  as long as a driver exists for that particular DBMS.
+
+- Step 1.1, download JDBC archive from `http://dev.mysql.com/downloads/connector/j/`, 
+  then unzip it and you will see a `mysql-connector-java-8.0.14.jar` file.
+
+- Step 1.2, add the `.jar` file into your Eclipse lib. You can drag `.jar` file to 
+  `WebContent/WEB-INF/lib` directly, or copy that file and paste it (if it does not exist). 
+
+
+
+
+
