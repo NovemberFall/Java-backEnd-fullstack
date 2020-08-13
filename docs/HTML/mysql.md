@@ -113,13 +113,19 @@ user_id | item_id | time
 --- | --- | ---
 1111 | abcd | 01/01/2019
 1111 | efgh | 01/02/2019
-1111 | efgh | 01/03/2019
+2222 | efgh | 01/03/2019
 
 
 
 - **Primary key** = item_id + user_id
 - **Foreign key** = user_id => users(user_id)
 - **Foreign key** = item_id => items(item_id) 
+
+---
+
+- 我们在写一个 query 的时候我们并不知道返回哪一个 `row`, 因为 item_id 有 duplicate = `efgh`
+  我们希望只返回一行, 
+
 
 
 ### A few more concept:
