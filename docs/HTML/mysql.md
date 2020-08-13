@@ -68,10 +68,10 @@
 
 - users - store user information.
 
-User_id | password | first_name | last_name
-------- | -------- | ------- | -------- 
-1111 | abcd | Tom | Zheng     
-2222 | efgh | Jack | Chen  
+| User_id | password | first_name | last_name |
+| ------- | -------- | ------- | -------- |
+| 1111 | abcd | Tom | Zheng |     
+| 2222 | efgh | Jack | Chen | 
 
 
 ---
