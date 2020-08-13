@@ -542,9 +542,32 @@ public class MySQLTableCreation {
   and then click ‘Structure’ on the right panel to verify its structure. 
 
 
+![](img/2020-08-13-01-28-13.png)
 
 
+- Click ‘Browse’ and you will see an empty table. 
 
+![](img/2020-08-13-01-29-33.png)
+
+
+- Step 3.3.5, Add a fake user. We don’t have register function in our application, 
+  so let’s create a user in our database.
+
+- Insert the highlight part after table creation part.
+
+
+```java
+			// Step 4: insert fake user 1111/3229c1097c00d497a0fd282d586be050
+			sql = "INSERT INTO users VALUES('1111', '3229c1097c00d497a0fd282d586be050', 'John', 'Smith')";
+			statement.executeUpdate(sql);
+```
+
+
+- Step 3.3.6, Verify a fake user is created. Run MySQLTableCreation.java as a Java 
+  application (not Run on Server). On MySQL web page, user table, ‘Browse’ panel, 
+  click Refresh and you should see one row.
+
+![](img/2020-08-13-01-34-44.png)
 
 
 
