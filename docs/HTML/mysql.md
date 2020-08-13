@@ -310,7 +310,42 @@ public class DBConnectionFactory {
 - **Step 3, create MySQL version of DBConnection implementation**
 
 - Step 3.1, create another package db.mysql, which will only contains mysql version of
-  DBConnection implementation. Then create MySQLDBUtil class in db.mysql package.
+  DBConnection implementation. Then create MySQLDBUtil class in `db.mysql` package.
 
 ![](img/2020-08-12-23-18-23.png)
+
+
+
+- Step 3.2, add some constants into MySQLDBUtil.java:
+
+```java
+package db.mysql;
+
+public class MySQLDBUtil {
+	private static final String HOSTNAME = "localhost";
+	private static final String PORT_NUM = "3306"; // change it to your mysql port number
+	public static final String DB_NAME = "laiproject";
+	private static final String USERNAME = "root";
+	private static final String PASSWORD = "";
+	public static final String URL = "jdbc:mysql://"
+			+ HOSTNAME + ":" + PORT_NUM + "/" + DB_NAME
+			+ "?user=" + USERNAME + "&password=" + PASSWORD
+			+ "&autoReconnect=true&serverTimezone=UTC";
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
