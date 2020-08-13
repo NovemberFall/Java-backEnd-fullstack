@@ -82,8 +82,8 @@
 
 Item_id | name | ... | rating | url
 ------- | -------- | ------- | -------- | -------- 
-abcd | macbook Pro |  | 5 | www.apple.com     
-efgh | ipad Pro |  | 0 | www.apple.com  
+abcd | macbook Pro | ... | 5 | www.apple.com     
+efgh | ipad Pro | ... | 0 | www.apple.com  
 
 
 
@@ -92,7 +92,11 @@ efgh | ipad Pro |  | 0 | www.apple.com
     but there will be more string join/split manipulations in our code, 
     so let’s save them in a separate table.
 
-
+item_id | category
+--- | ---
+abcd | party
+efgh | party
+efgh | sports
 
 
 
