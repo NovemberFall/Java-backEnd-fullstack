@@ -36,6 +36,16 @@
 - I have installed `XAMPP`, 这里我就不再介绍 MAMP
 
 
+- open `http://localhost/phpmyadmin/`
+- Step 4, under phpMyAdmin, you should be able to see a list of databases. Let’s create a
+  new database called **laiproject** (lowercase). And use utf8_general_ci as the collation. 
+
+![](img/2020-08-13-01-18-13.png)
+
+- Click the newly created database and ‘Structure’ will show that it has no tables. 
+ 
+
+
 
 ### MySQL
 
@@ -333,6 +343,219 @@ public class MySQLDBUtil {
 			+ "&autoReconnect=true&serverTimezone=UTC";
 }
 ```
+
+
+- Step 3.3, create a new class called `MySQLTableCreation.java` to automatically reset our 
+  tables in our database. So in the future, you can run this function every time when 
+  you think the data stored in you DB is messed up.
+
+![](img/2020-08-12-23-29-24.png)
+
+
+- Step 3.3.1, first let’s try to connect to MySQL through JDBC connection. Be careful, 
+  always use java.sql.* when eclipse ask you to import DB related packages. 
+
+```java
+package db.mysql;
+
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.Connection;
+
+public class MySQLTableCreation {
+	// Run this as Java application to reset db schema.
+	public static void main(String[] args) {
+		try {
+			// Step 1 Connect to MySQL.
+			System.out.println("Connecting to " + MySQLDBUtil.URL);
+			Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
+			Connection conn = DriverManager.getConnection(MySQLDBUtil.URL);
+			
+			if (conn == null) {
+				return;
+			}
+			
+			conn.close();
+			System.out.println("Import done successfully");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+---
+
+- 接下来我们要确保，我们想要建立的 table 是不存在的，这样我们可以重新创建一个新 table
+
+- Step 3.3.2, after connecting to MySQL, let’s try to drop old tables if they’re existed.
+
+- Syntax for `DROP` : `DROP TABLE IF EXISTS table_name;` 
+
+
+```java
+public class MySQLTableCreation {
+	// Run this as Java application to reset db schema.
+	public static void main(String[] args) {
+		try {
+			// Step 1 Connect to MySQL.
+			System.out.println("Connecting to " + MySQLDBUtil.URL);
+			Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
+			Connection conn = DriverManager.getConnection(MySQLDBUtil.URL);
+			
+			if (conn == null) {
+				return;
+			}
+			
+			// Step 2 Drop tables in case they exist.
+			Statement statement = conn.createStatement();
+			String sql = "DROP TABLE IF EXISTS categories";
+			statement.executeUpdate(sql);
+			
+			sql = "DROP TABLE IF EXISTS history";
+			statement.executeUpdate(sql);
+			
+			sql = "DROP TABLE IF EXISTS items";
+			statement.executeUpdate(sql);
+			
+			sql = "DROP TABLE IF EXISTS users";
+			statement.executeUpdate(sql);
+
+			
+			conn.close();
+			System.out.println("Import done successfully");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+
+
+- Step 3.3.3, create 4 tables: Users, Items, Category, History
+
+- Syntax for CREATE. 
+
+```sql
+CREATE TABLE table_name (
+	column1 datatype,
+	column2 datatype,
+	column3 datatype,
+   ....
+);
+```
+
+- Insert highlighted lines after Step 2 and before 
+  `System.out.println("Import is done successfully.");`
+
+
+```java
+
+public class MySQLTableCreation {
+	// Run this as Java application to reset db schema.
+	public static void main(String[] args) {
+		try {
+			// Step 1 Connect to MySQL.
+			System.out.println("Connecting to " + MySQLDBUtil.URL);
+			Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
+			Connection conn = DriverManager.getConnection(MySQLDBUtil.URL);
+			
+			if (conn == null) {
+				return;
+			}
+			
+			// Step 2 Drop tables in case they exist.
+			Statement statement = conn.createStatement();
+			String sql = "DROP TABLE IF EXISTS categories";
+			statement.executeUpdate(sql);
+			
+			sql = "DROP TABLE IF EXISTS history";
+			statement.executeUpdate(sql);
+			
+			sql = "DROP TABLE IF EXISTS items";
+			statement.executeUpdate(sql);
+			
+			sql = "DROP TABLE IF EXISTS users";
+			statement.executeUpdate(sql);
+
+
+			// Step 3 Create new tables
+			sql = "CREATE TABLE items ("
+					+ "item_id VARCHAR(255) NOT NULL,"
+					+ "name VARCHAR(255),"
+					+ "rating FLOAT,"
+					+ "address VARCHAR(255),"
+					+ "image_url VARCHAR(255),"
+					+ "url VARCHAR(255),"
+					+ "distance FLOAT,"
+					+ "PRIMARY KEY (item_id)"
+					+ ")";
+			statement.executeUpdate(sql);
+
+			sql = "CREATE TABLE users ("
+					+ "user_id VARCHAR(255) NOT NULL,"
+					+ "password VARCHAR(255) NOT NULL,"
+					+ "first_name VARCHAR(255),"
+					+ "last_name VARCHAR(255),"
+					+ "PRIMARY KEY (user_id)"
+					+ ")";
+			statement.executeUpdate(sql);
+
+			sql = "CREATE TABLE categories ("
+					+ "item_id VARCHAR(255) NOT NULL,"
+					+ "category VARCHAR(255) NOT NULL,"
+					+ "PRIMARY KEY (item_id, category),"
+					+ "FOREIGN KEY (item_id) REFERENCES items(item_id)"
+					+ ")";
+      //你要想定义一个 FOREIGN key, 就必须让this primary key 指向另一个 table's primary key
+			statement.executeUpdate(sql);
+
+			sql = "CREATE TABLE history ("
+					+ "user_id VARCHAR(255) NOT NULL,"
+					+ "item_id VARCHAR(255) NOT NULL,"
+					+ "last_favor_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,"
+					+ "PRIMARY KEY (user_id, item_id),"
+					+ "FOREIGN KEY (user_id) REFERENCES users(user_id),"
+					+ "FOREIGN KEY (item_id) REFERENCES items(item_id)"
+					+ ")";
+			statement.executeUpdate(sql);
+			
+			
+			conn.close();
+			System.out.println("Import done successfully");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+```
+
+
+
+- Step 3.3.4, Verify tables creation result.Run this file as a java application (not server) 
+  and then open phpMyAdmin. Click laiproject as the database. Choose user on the left panel 
+  and then click ‘Structure’ on the right panel to verify its structure. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
