@@ -80,6 +80,9 @@ public class MySQLConnection implements DBConnection {
   **Again, careful with the import suggestions. Always choose java.sql.*.**
 
 
+- Step 1.4: implement searchItems() in MySQLConnection. Previously we call 
+  TicketMasterClient.search from our SearchItem servlet directly. But actually our recommendation code also needs to call the same search function, so we make a designated function here to do the search call.
+  The code is simply copied from what we’ve already had in SearchItem.java.
 
 
 
