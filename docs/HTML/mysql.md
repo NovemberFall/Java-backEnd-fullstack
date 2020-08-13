@@ -100,6 +100,27 @@ efgh | sports
 
 
 
+- **Primary key** = item_id + category 
+- **Foreign key** = item_id => items(item_id)
+
+---
+
+
+- history - store user favorite history
+
+
+user_id | item_id | time
+--- | --- | ---
+1111 | abcd | 01/01/2019
+1111 | efgh | 01/02/2019
+1111 | efgh | 01/03/2019
+
+
+
+- **Primary key** = item_id + user_id
+- **Foreign key** = user_id => users(user_id)
+- **Foreign key** = item_id => items(item_id) 
+
 
 ### A few more concept:
 
