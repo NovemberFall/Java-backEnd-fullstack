@@ -157,10 +157,160 @@ user_id | item_id | time
 - Step 1.1, download JDBC archive from `http://dev.mysql.com/downloads/connector/j/`, 
   then unzip it and you will see a `mysql-connector-java-8.0.14.jar` file.
 
+![](img/2020-08-12-22-43-27.png)
+- 选第一个下载  
+
 - Step 1.2, add the `.jar` file into your Eclipse lib. You can drag `.jar` file to 
   `WebContent/WEB-INF/lib` directly, or copy that file and paste it (if it does not exist). 
 
+![](img/2020-08-12-22-51-27.png)
 
 
+- For DB related functions, please always use: `import java.sql.xxx`;
 
+- **Step 2: Create our db related package**
+
+- Step 2.1 create a new package named db, then add a new interface called DBConnection. 
+
+![](img/2020-08-12-23-03-50.png)
+
+- Step 2.2, add the following code into DBConnection, we’ll implement them one by one 
+  in both MySQL and MongoDB later.
+
+- now we define some `DBConnection`'s methods
+
+```java
+import java.util.List;
+import java.util.Set;
+
+import entity.Item;
+
+public interface DBConnection {
+	/**
+	 * Close the connection.
+	 */
+	public void close();
+
+	/**
+	 * Insert the favorite items for a user.
+	 * 
+	 * @param userId
+	 * @param itemIds
+	 */
+	public void setFavoriteItems(String userId, List<String> itemIds);
+
+	/**
+	 * Delete the favorite items for a user.
+	 * 
+	 * @param userId
+	 * @param itemIds
+	 */
+	public void unsetFavoriteItems(String userId, List<String> itemIds);
+
+	/**
+	 * Get the favorite item id for a user.
+	 * 
+	 * @param userId
+	 * @return itemIds
+	 */
+	public Set<String> getFavoriteItemIds(String userId);
+
+	/**
+	 * Get the favorite items for a user.
+	 * 
+	 * @param userId
+	 * @return items
+	 */
+	public Set<Item> getFavoriteItems(String userId);
+
+	/**
+	 * Gets categories based on item id
+	 * 
+	 * @param itemId
+	 * @return set of categories
+	 */
+	public Set<String> getCategories(String itemId);
+
+	/**
+	 * Search items near a geolocation and a term (optional).
+	 * 
+	 * @param userId
+	 * @param lat
+	 * @param lon
+	 * @param term
+	 *            (Nullable)
+	 * @return list of items
+	 */
+	public List<Item> searchItems(double lat, double lon, String term);
+
+	/**
+	 * Save item into db.
+	 * 
+	 * @param item
+	 */
+	public void saveItem(Item item);
+
+	/**
+	 * Get full name of a user. (This is not needed for main course, just for demo
+	 * and extension).
+	 * 
+	 * @param userId
+	 * @return full name of the user
+	 */
+	public String getFullname(String userId);
+
+	/**
+	 * Return whether the credential is correct. (This is not needed for main
+	 * course, just for demo and extension)
+	 * 
+	 * @param userId
+	 * @param password
+	 * @return boolean
+	 */
+	public boolean verifyLogin(String userId, String password);
+}
+
+```
+
+---
+
+- Step 2.3, create another class called DBConnectionFactory, we’ll use it to create 
+  different db instances.
+
+
+```java
+package db;
+
+public class DBConnectionFactory {
+	// This should change based on the pipeline.
+	private static final String DEFAULT_DB = "mysql";
+	
+	public static DBConnection getConnection(String db) {
+		switch (db) {
+		case "mysql":
+			// return new MySQLConnection();
+			return null;
+		case "mongodb":
+			// return new MongoDBConnection();
+			return null;
+		default:
+			throw new IllegalArgumentException("Invalid db:" + db);
+		}
+
+	}
+
+	public static DBConnection getConnection() {
+		return getConnection(DEFAULT_DB);
+	}
+}
+```
+
+---
+
+- **Step 3, create MySQL version of DBConnection implementation**
+
+- Step 3.1, create another package db.mysql, which will only contains mysql version of
+  DBConnection implementation. Then create MySQLDBUtil class in db.mysql package.
+
+![](img/2020-08-12-23-18-23.png)
 
