@@ -74,6 +74,7 @@ User_id | password | first_name | last_name
 2222 | efgh | Jack | Chen  
 
 
+---
 
 
 - items - store item information
@@ -81,8 +82,18 @@ User_id | password | first_name | last_name
 
 Item_id | name | ... | rating | url
 ------- | -------- | ------- | -------- | -------- 
-abcd | macbook Pro | ... | 5 | www.apple.com     
-efgh | ipad Pro | ... | 0 | www.apple.com  
+abcd | macbook Pro |  | 5 | www.apple.com     
+efgh | ipad Pro |  | 0 | www.apple.com  
+
+
+
+- category - store item-category relationship
+  - It’s an implementation detail, we could save category in item table, 
+    but there will be more string join/split manipulations in our code, 
+    so let’s save them in a separate table.
+
+
+
 
 
 
