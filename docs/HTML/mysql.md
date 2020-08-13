@@ -45,8 +45,54 @@
 #### Basic Concepts
 
 - **Table**: a collection of attributions. Similar to what you’ve seen in an excel chart. 
-  Each column is an attribute of an entity, and each row is a record/instance of an entity. 
+  Each column is an attribute of an entity, and each row is a record/instance of an entity.
+- **Row**: a single, implicitly structured data item in a table
+- **Column**: a set of data values of a particular simple type, 
+  one for each row of the table
+- **Schema**: blueprint of how table is constructed.
 
+
+### Our tables in our MySQL
+
+- **Entities**, which are represented by rectangles. An entity is an object or concept 
+  about which you want to store information.
+- **Actions**, which are represented by diamond shapes, show how two entities share 
+  information in the database.
+- **Attributes**, which are represented by ovals. A key attribute is the unique, 
+  distinguishing characteristic of the entity. For example, an employee's social security 
+  number might be the employee's key attribute.
+
+![](img/2020-08-12-17-00-21.png)
+
+
+
+- users - store user information.
+
+User_id | password | first_name | last_name
+------- | -------- | ------- | -------- 
+1111 | abcd | Tom | Zheng     
+2222 | efgh | Jack | Chen  
+
+
+
+
+- items - store item information
+
+
+Item_id | name | ... | rating | url
+------- | -------- | ------- | -------- | -------- 
+abcd | macbook Pro | ... | 5 | www.apple.com     
+efgh | ipad Pro | ... | 0 | www.apple.com  
+
+
+
+### A few more concept:
+
+- **Primary key**: Also a key that is unique for each record. Cannot be NULL and 
+  used as a unique identifier.
+- **Foreign key**: a key used to link two tables together. A `FOREIGN KEY` is a field 
+  (or collection of fields) in one table that refers to the PRIMARY KEY in another table.
+ 
 
 
 
