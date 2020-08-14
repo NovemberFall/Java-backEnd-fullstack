@@ -82,6 +82,35 @@ public class MySQLConnection implements DBConnection {
   **Again, careful with the import suggestions. Always choose java.sql.*.**
 
 
+```java
+public class MySQLConnection implements DBConnection {
+
+	private Connection conn;
+
+	public MySQLConnection() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
+			conn = DriverManager.getConnection(MySQLDBUtil.URL);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void close() {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+```
+
+
+
 - Step 1.4: implement searchItems() in MySQLConnection. Previously we call 
   TicketMasterClient.search from our SearchItem servlet directly. But actually our 
   recommendation code also needs to call the same search function, so we make a designated 
