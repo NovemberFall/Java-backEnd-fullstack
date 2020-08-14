@@ -287,8 +287,17 @@ public class SearchItem extends HttpServlet {
   changes. Restart Tomcat Server. Open browser or postman. Send a GET request:
   - `http://localhost:8080/Jupiter/search?lat=37.38&lon=-122.08`
 
+![](img/2020-08-14-16-37-12.png)
+
+![](img/2020-08-14-16-35-11.png)
+
+![](img/2020-08-14-16-43-20.png)
 
 
+- If any error occurs, try to read the debugging info on the output console and 
+  see if you can find the causes yourself.
+
+- Well done for the first API!
 
 
 
