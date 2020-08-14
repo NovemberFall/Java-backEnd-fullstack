@@ -111,12 +111,27 @@ public class MySQLConnection implements DBConnection {
 
 
 
-- Step 1.4: implement searchItems() in MySQLConnection. Previously we call 
+- Step 1.4: implement `searchItems()` in `MySQLConnection`. Previously we call 
   TicketMasterClient.search from our SearchItem servlet directly. But actually our 
   recommendation code also needs to call the same search function, so we make a designated 
   function here to do the search call.
   The code is simply copied from what we’ve already had in SearchItem.java.
 
+
+```java
+	@Override
+	public List<Item> searchItems(double lat, double lon, String term) {
+		TicketMasterClient ticketMasterClient = new TicketMasterClient();
+		List<Item> items = ticketMasterClient.search(lat, lon, term);
+		for(Item item : items) {
+			saveItem(item);
+		}
+		return items;
+	}
+```
+
+- Step 1.5, after searchItem, let’s try `saveItem` to save data into database. 
+  **Again, careful with the import suggestions. Always choose java.sql.*.**
 
 
 
