@@ -1,6 +1,8 @@
 ## MySQL II
 
-![](img/2020-08-13-02-17-33.png)
+![](img/2020-08-14-09-32-24.png)
+
+
 
 - **Step 1, save search results to database**
 - Step 1.1, Under db.mysql package, create class MySQLConnection.java.
@@ -81,8 +83,12 @@ public class MySQLConnection implements DBConnection {
 
 
 - Step 1.4: implement searchItems() in MySQLConnection. Previously we call 
-  TicketMasterClient.search from our SearchItem servlet directly. But actually our recommendation code also needs to call the same search function, so we make a designated function here to do the search call.
+  TicketMasterClient.search from our SearchItem servlet directly. But actually our 
+  recommendation code also needs to call the same search function, so we make a designated 
+  function here to do the search call.
   The code is simply copied from what we’ve already had in SearchItem.java.
+
+
 
 
 
