@@ -299,19 +299,209 @@ public class SearchItem extends HttpServlet {
 
 - Well done for the first API!
 
+---
+
+- **Step 2, let’s try to implement set/unset favorite related functions**
+  
+- Step 2.1, let’s try `setFavoriteItem` and `unsetFavoriteItem`
+
+```java
+public class MySQLConnection implements DBConnection {
+
+
+	@Override
+	public void setFavoriteItems(String userId, List<String> itemIds) {
+		if (conn == null) {
+			System.out.println("DB connection failed");
+			return;
+		}
+		try {
+			String sql = "INSERT IGNORE INTO history(user_id, item_id) VALUES (?, ?)";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, userId);
+			for (String itemId : itemIds) {
+				ps.setString(2, itemId);
+				ps.execute();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void unsetFavoriteItems(String userId, List<String> itemIds) {
+		if (conn == null) {
+			System.err.println("DB connection failed");
+			return;
+		}
+
+		try {
+			String sql = "DELETE FROM history WHERE user_id = ? AND item_id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, userId);
+			for (String itemId : itemIds) {
+				ps.setString(2, itemId);
+				ps.execute();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+```
+
+
+
+- Step 2.2, create a new servlet called ItemHistory, instead of click 
+  OK, click next this time.
+
+
+![](img/2020-08-15-16-31-28.png)
+
+
+
+- Step 2.3, update the url mapping, and then click next.
+
+
+![](img/2020-08-15-17-49-18.png)
+
+
+- Step 2.4, check doDelete method, then click finish.
+
+![](img/2020-08-15-18-14-17.png)
 
 
 
 
+- Step 2.5, create a new class in `RpcHelper.java`  to parse HTTP 
+  request body. Imagine the input HTTP request looks like:
+
+
+```java
+public class RpcHelper {
+	// Writes a JSONArray to http response.
+
+	// Parses a JSONObject from http request.
+	public static JSONObject readJSONObject(HttpServletRequest request) {
+		StringBuilder sBuilder = new StringBuilder();
+		try (BufferedReader reader = request.getReader()) {
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				sBuilder.append(line);
+			}
+			return new JSONObject(sBuilder.toString());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new JSONObject();
+	}
+
+}
+```
+
+
+- Step 2.6, update doPost() and doDelete in `ItemHistory.java` to use 
+  this new function.
+
+
+```java
+/**
+ * Servlet implementation class ItemHistory
+ */
+@WebServlet("/ItemHistory")
+public class ItemHistory extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ItemHistory() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		DBConnection connection = DBConnectionFactory.getConnection();
+		try {
+			JSONObject input = RpcHelper.readJSONObject(request);
+			String userId = input.getString("user_id");
+			JSONArray array = input.getJSONArray("favorite");
+			List<String> itemIds = new ArrayList<>();
+			for (int i = 0; i < array.length(); ++i) {
+				itemIds.add(array.getString(i));
+			}
+			connection.setFavoriteItems(userId, itemIds);
+			RpcHelper.writeJsonObject(response, new JSONObject().put("result", "SUCCESS"));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			connection.close();
+		}
+
+	}
+
+	/**
+	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
+	 */
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		DBConnection connection = DBConnectionFactory.getConnection();
+		try {
+			JSONObject input = RpcHelper.readJSONObject(request);
+			String userId = input.getString("user_id");
+			JSONArray array = input.getJSONArray("favorite");
+			List<String> itemIds = new ArrayList<>();
+			for (int i = 0; i < array.length(); ++i) {
+				itemIds.add(array.getString(i));
+			}
+			connection.unsetFavoriteItems(userId, itemIds);
+			RpcHelper.writeJsonObject(response, new JSONObject().put("result", "SUCCESS"));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			connection.close();
+		}
+	}
+
+}
+```
 
 
 
 
+- Step 2.7, save your changes and restart your server.
 
 
 
+- Step 2.7.1, open postman, switch to post method, use 
+  http://localhost:8080/Jupiter/history, then copy the following JSON 
+  object into body. Replace item_id1 and item_id2 with the real 
+  item_id exist in your item table.
+
+```json
+{
+    'user_id':'1111',
+    'favorite' : [
+        'item_id1',
+    ]
+}
+
+```
 
 
+- Step 2.7.2, go to phpMyAdmin page, check if history table has 
+  already changed.
 
 
 
