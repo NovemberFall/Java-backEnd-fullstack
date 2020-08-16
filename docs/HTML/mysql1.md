@@ -489,22 +489,194 @@ public class ItemHistory extends HttpServlet {
   object into body. Replace item_id1 and item_id2 with the real 
   item_id exist in your item table.
 
+
 ```json
 {
-    'user_id':'1111',
-    'favorite' : [
-        'item_id1',
-    ]
+    'user_id':'1111',
+    'favorite' : [
+        'G5vYZ4gUWyfpH',
+        'G5vYZ4M1Nc7-M'
+    ]
 }
-
 ```
+
+![](img/2020-08-16-02-08-24.png)
+
 
 
 - Step 2.7.2, go to phpMyAdmin page, check if history table has 
   already changed.
 
+![](img/2020-08-16-02-09-54.png)
 
 
 
+- Step 2.7.3, now let’s send another request to test our delete function. Open another 
+  tab in postman, switch method to delete, use http://localhost:8080/Jupiter/history, 
+  then copy the following JSON object into body. Again replace item_id1 with the real 
+  item_id exist in your history table.
+
+```json
+{
+    'user_id':'1111',
+    'favorite' : [
+        'G5vYZ4M1Nc7-M',
+    ]
+}
+```
+
+![](img/2020-08-16-02-25-00.png)
+
+- Step 2.7.4, go to phpMyAdmin page, history table should be updated again.
+
+![](img/2020-08-16-02-25-27.png)
 
 
+---
+
+## Continue to implement get history
+
+- Step 1, implement `getFavoriteItems` method for `MySQLConnection`.
+
+```java
+	@Override
+	public Set<Item> getFavoriteItems(String userId) {
+		if (conn == null) {
+			return new HashSet<>();
+		}
+
+		Set<Item> favoriteItems = new HashSet<>();
+		Set<String> itemIds = getFavoriteItemIds(userId);
+
+		try {
+			String sql = "SELECT * FROM items WHERE item_id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			for (String itemId : itemIds) {
+				stmt.setString(1, itemId);
+
+				ResultSet rs = stmt.executeQuery();
+
+				ItemBuilder builder = new ItemBuilder();
+
+				while (rs.next()) {
+					builder.setItemId(rs.getString("item_id"));
+					builder.setName(rs.getString("name"));
+					builder.setAddress(rs.getString("address"));
+					builder.setImageUrl(rs.getString("image_url"));
+					builder.setUrl(rs.getString("url"));
+					builder.setCategories(getCategories(itemId));
+					builder.setDistance(rs.getDouble("distance"));
+					builder.setRating(rs.getDouble("rating"));
+
+					favoriteItems.add(builder.build());
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return favoriteItems;
+
+	}
+```
+
+
+
+- Step 2 Next, let’s try `getFavoriteItemIds` and `getCategories`
+
+
+```java
+      @Override
+        	public Set<String> getFavoriteItemIds(String userId) {
+                    	if (conn == null) {
+                                	return new HashSet<>();
+                    	}
+                       
+                    	Set<String> favoriteItems = new HashSet<>();
+                       
+                    	try {
+                                	String sql = "SELECT  item_id FROM history WHERE user_id = ?";
+                                	PreparedStatement stmt = conn.prepareStatement(sql);
+                                	stmt.setString(1, userId);
+                                   
+                                	ResultSet rs = stmt.executeQuery();
+                                   
+                                	while (rs.next()) {
+                                            	String itemId = rs.getString("item_id");
+                                            	favoriteItems.add(itemId);
+                                	}
+                    	} catch (SQLException e) {
+                                	e.printStackTrace();
+                    	}
+                       
+                    	return favoriteItems;
+ 
+        	}
+ 
+        	@Override
+        	public Set<String> getCategories(String itemId) {
+                    	if (conn == null) {
+                                	return null;
+                    	}
+                    	Set<String> categories = new HashSet<>();
+                    	try {
+                                	String sql = "SELECT category from categories WHERE item_id = ? ";
+                                	PreparedStatement statement = conn.prepareStatement(sql);
+                                	statement.setString(1, itemId);
+                                	ResultSet rs = statement.executeQuery();
+                                	while (rs.next()) {
+                                            	String category = rs.getString("category");
+                                            	categories.add(category);
+                                	}
+                    	} catch (SQLException e) {
+                                	System.out.println(e.getMessage());
+                    	}
+                    	return categories;
+ 
+        	}
+```
+
+
+
+- Step 3, get back to `ItemHistory.java`, update `doGet` method.
+
+
+```java
+            /**
+        	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+        	 *      response)
+        	 */
+        	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+                                	throws ServletException, IOException {
+                    	String userId = request.getParameter("user_id");
+                    	JSONArray array = new JSONArray();
+                       
+                    	DBConnection conn = DBConnectionFactory.getConnection();
+                    	try {
+                                	Set<Item> items = conn.getFavoriteItems(userId);
+                                	for (Item item : items) {
+                                            	JSONObject obj = item.toJSONObject();
+                                            	obj.append("favorite", true);
+                                            	array.put(obj);
+                                	}
+                                   
+                                	RpcHelper.writeJsonArray(response, array);
+                    	} catch (JSONException e) {
+                                	e.printStackTrace();
+                    	} finally {
+                                	conn.close();
+                    	}
+ 
+        	}
+```
+
+
+- Step 4, save your changes and test this function. If you html/javascript is ready, 
+  use the my favorites button to test. Otherwise, send a get request to 
+  http://localhost:8080/Jupiter/history?user_id=1111, or simply type the url in 
+  browser. You should see the result like this:
+
+![](img/2020-08-16-04-09-10.png)
+
+
+![](img/2020-08-16-04-10-02.png)
