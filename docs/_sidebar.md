@@ -3,7 +3,7 @@
 -----
 * [Item Recommendation](itemRecommand/intro.md)
     * [1. HTML](HTML/intro.md)
-    * [2. CSS](HTML/css.md)
+    * [2. CSS I](HTML/css.md)
     * [5. Web Application Basics](HTML/webBasics.md)
     * [6. Java Servlet | HTTP request and response](HTML/servlet.md)
     * [7. Ticket Master API | Restful API](HTML/ticket.md)
