@@ -325,8 +325,302 @@
 
 ---
 
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Item Recommendation">
+  <meta name="author" content="Your Name">
+  <title>Item Recommendation Final</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="project-new.css">
+</head>
+<body>
+  <header class="top-header">
+    <nav class="top-nav">
+      <a href="#">Home</a>
+      <a href="#">Contact</a>
+      <a href="#">About</a>
+    </nav>
+    <span id="welcome-msg"></span>
+    <i id="avatar" class="avatar fa fa-user fa-2x"></i>
+  </header>
+  
+  <div class="container">
+    <header>
+      <p>
+        <span>Item</span>
+        <br /> Recommendation
+      </p>
+    </header>
+
+    <section class="main-section">
+      <aside id="item-nav">
+        <div class="nav-icon">
+          <i class="fa fa-sitemap fa-2x"></i>
+        </div>
+        <nav class="main-nav">
+          <a href="#" id="nearby-btn" class="main-nav-btn active">
+            <i class="fa fa-map-marker"></i> Nearby
+          </a>
+          <a href="#" id="fav-btn" class="main-nav-btn">
+            <i class="fa fa-heart"></i> My Favorites
+          </a>
+          <a href="#" id="recommend-btn" class="main-nav-btn">
+            <i class="fa fa-thumbs-up"></i> Recommendation
+          </a>
+        </nav>
+      </aside>
+
+      <ul id="item-list">
+        <li class="item">
+          <img alt="item image" src="https://s3-media3.fl.yelpcdn.com/bphoto/EmBj4qlyQaGd9Q4oXEhEeQ/ms.jpg" />
+          <div>
+            <a class="item-name" href="#">Item</a>
+            <p class="item-category">Vegetarian</p>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+          </div>
+          <p class="item-address">699 Calderon Ave<br/>Mountain View<br/> CA</p>
+          <div class="fav-link">
+            <i class="fa fa-heart"></i>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+  
+  <footer>
+    <p class="title">What We Do</p>
+    <p>"Help you find the best place around."</p>
+    <ul>
+      <li>
+        <p><i class="fa fa-map-o fa-2x"></i></p>
+        <p>San Jose, CA</p>
+      </li>
+      <li>
+        <p><i class="fa fa-envelope-o fa-2x"></i></p>
+        <p>info@gmail.com</p>
+      </li>
+      <li>
+        <p><i class="fa fa-phone fa-2x"></i></p>
+        <p>+1 800 123 8888</p>
+      </li>
+    </ul>
+  </footer>
+  
+  <script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
+```
 
 
+- create `.css`
+
+
+```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: #434343;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.9em;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  .top-header {
+    width: 100%;
+    height: 60px;
+    background: #DF574B;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    box-shadow: 0px 2px 10px #333;
+  }
+  
+  .avatar {
+    background-color: white;
+    color: #333;
+    border-radius: 50%;
+    height: 40px;
+    margin-left: 20px;
+    padding-left: 9px;
+    padding-top:5px;
+    width: 40px;
+  }
+  
+  .top-nav a {
+    margin-left: 20px;
+    color: #F9F9F9;
+    text-decoration: none;
+    font-weight: 400;
+  }
+  
+  .container > header {
+    height: 250px;
+    background: url('http://prophoto.com.cy/wp-content/galleries/food/food-restaurant-photographer-cyprus-10.jpg') no-repeat 50% 50%;  
+    display: flex;
+    align-items: center;
+    background-size: 100%;
+  }
+  
+  .container > header p {
+    font-weight: 400;
+    font-size: 2em;
+    margin-left: 220px;
+    border-left: 1px solid white;
+    padding-left: 5px;
+  }
+  
+  .container > header span {
+    color: #FBAF41;
+  }
+  
+  
+  .main-section {
+    background: #F3BB43;
+    //height: 500px; // to be changed
+  }
+  
+  .main-section aside {
+    float: left;
+    width: 180px;
+  }
+  
+  .nav-icon {
+    color: #624630;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .main-nav-btn {
+    background: none;
+    color: white;
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+    border-top: 1px solid white;
+    text-align: left;
+  }
+  
+  .main-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: #624630;
+  }
+  
+  .main-nav-btn.active {
+    background: #F2EBD9;
+    color: #624630;
+  }
+  
+  .main-nav-btn i{
+    width: 20px;
+  }
+  
+  
+  .restaurant-list {
+    list-style:  none;
+    margin-left: 180px;
+    min-height:  250px;
+    padding:     10px;
+    background:  #F2EBD9;
+  }
+  
+  .restaurant {
+    display: flex;
+    align-items: center;
+    color: #624630;
+    border-bottom: 1px solid white;
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .restaurant:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  .restaurant:last-child {
+    border: none;
+  }
+  
+  .restaurant img {
+    border: 1px solid #FFFFFF;
+    height: 80px;
+    width:  80px;
+  }
+  
+  .restaurant div:first-of-type {
+    flex: 1;
+    margin-left:  10px;
+    margin-right: 10px;
+  }
+  
+  .restaurant-name {
+    color: #624630;
+    font-weight:     400;
+    text-decoration: none;
+  }
+  
+  .restaurant-name:hover {
+    text-decoration: underline;
+  }
+  
+  .restaurant-address {
+    line-height: 20px;
+    padding-right: 20px;
+    text-align: right;
+  }
+  
+  .stars {
+    padding-top: 10px;
+  }
+  
+  footer {
+    background: #434343;
+    font-size:  0.8em;
+    height:     200px;
+    position:   relative;
+  }
+  
+  footer p {
+    text-align: center;
+  }
+  
+  footer p.title {
+    font-size: 1.2em;
+    padding:   15px;
+  }
+  
+  footer ul {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  footer ul li {
+     flex: 1;
+  }
+  
+```
+
+![](img/2020-08-22-13-00-15.png)
 
 
 
