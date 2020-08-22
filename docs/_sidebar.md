@@ -11,6 +11,7 @@
     * [9. MySQL I | XAMPP](HTML/mysql.md)
     * [10. MySQL II | XAMPP](HTML/mysql1.md)
     * [11. CSS II](HTML/css1.md)
+    * [12. JavaScript](HTML/js.md)
 
 -----
 * [E-commerce Part1: web app e-ecommerce](p1/intro.md)
