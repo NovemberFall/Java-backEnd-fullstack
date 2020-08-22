@@ -150,13 +150,170 @@
 
 
 
+- create `relative-position.html`
 
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relative-Position</title>
+    <style>
+        body,div{
+            padding:0;
+            margin:0;
+        }
+        div{
+            border: 1px solid blue;
+        }
+
+        .rl{
+            width: 200px;
+            height: 200px;
+
+            /* step 1 相对定位 */
+            /* 设置了相对定位之后， 容器的css就可以设置left, right, top, bottom属性 */
+            position: relative;
+            /* 相对于元素原来的位置 */
+            left: 10px;
+            top: 20px;
+        }
+
+        /* step 2 绝对定位 */
+        .ab{
+            width: 200px;
+            height: 100px;
+            background-color: lightpink;
+
+            /* step 2.1 */
+            position: absolute;
+            top: 30px;
+            left: 100px;
+        }
+
+        /* tep 3 设置父容器定位 */
+        .parent{
+            width: 400px;
+            height: 500px;
+            background-color: lightgray;
+
+            /* step 4 加上定位 */
+            position: relative;
+        }
+
+        /* step 5 fix position */
+        .f{
+            position: fixed;
+            top:0;
+            right: 0;
+            height: 100px;
+            width: 100px;
+            background-color: lavender;
+        }
+    </style>
+</head>
+<body>
+    <!-- step 1 相对定位 -->
+    <div class="rl">
+        this is a div - Relative-Position
+    </div>
+
+    <!-- step 2 绝对定位 -->
+    <div class="ab">
+        this is a div - absolute-Position
+    </div>
+
+    <!-- step 3 设置父容器定位 comment掉上面的ab -->
+    <div class="parent">
+        <div class="ab">
+            this is a div - absolute position
+        </div>
+    </div>
+
+    <!-- step 5 fix position -->
+    <div class="f">
+        fix position
+    </div>
+
+</body>
+</html>
+```
 
 
+![](img/2020-08-21-21-48-19.png)
+
+- [example](http://jsbin.com/xepegoh/5/edit?html,css,output)
 
 
+---
 
+
+## Z-index
+
+- The z-index property specifies the stack order of an element.
+
+- An element with greater stack order is always in front of an element with a lower stack order.
+  - Note: z-index only works on positioned elements (position:absolute, position:relative, 
+    or position:fixed).
+
+![](img/2020-08-21-21-50-37.png)    
+
+
+- create `z-index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z-index</title>
+
+    <style>
+        .ab{
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            border: 1px solid lightblue;
+        }
+
+        .d1{
+            /* 中间层 */
+            z-index: 100;
+            left: 100px;
+            top: 100px;
+            background-color: ligthblue;
+        }
+        .d2{
+            /* 最高层 */
+            z-index: 200;
+            background-color: lightpink;
+        }
+        .d3{
+            /* 最底层 */
+            z-index: 4;
+            left: 20px;
+            top: -30px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="ab d1">中间层</div>
+    <div class="ab d2">最高层</div>
+    <div class="ab d3">最底层</div>
+</body>
+</html>
+```
+
+![](img/2020-08-21-21-57-16.png)
+
+
+---
+
+- [**4. Project HTML+CSS Part**](http://jsbin.com/rafomem/20/edit?html,css,output)
 
 
 
