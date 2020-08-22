@@ -56,7 +56,7 @@
 
 ---
 
-## Floating
+## 2. Floating
 
 - The float CSS property specifies that an element should be placed along the left or 
   right side of its container, allowing text and inline elements to wrap around it. 
@@ -105,10 +105,47 @@
 ![](img/2020-08-21-17-12-32.png)
 
 
+- **inline-block**
+  - Floating works great, but as you see we need to apply the `.clear` to clear out the 
+    floating even for a block element. There is another way to achieve the floating 
+    effect, that is to use inline-block display.
+  - similar to inline, inline-block allows multiple elements to layout on the same line, 
+    the beauty of it is that elements can automatically wrap around if the wrapper 
+    container is too small, and if you add a block element right after an inline-block 
+    element, we don’t need to use the ugly `.clear` fix.
+
+- https://developer.mozilla.org/en-US/docs/Web/CSS/overflow
+
+
+---
+
+## 3. Position
+
+- **static (default)**
+  - Default value, means the element is not positioned! A static element is said to 
+    be not positioned and an element with its position set to anything else is said to 
+    be positioned.
+
+
+- **relative**
+  - The top, right, bottom and left properties of a relatively-positioned element will 
+    cause it to be adjusted away from **its original position**. Other content will 
+    not be adjusted to fit into any gap left by the element.
+
+![](img/2020-08-21-21-24-08.png)
+
+
+- **absolute**
+  - The top, right, bottom and left properties of an absolute-positioned element will 
+    cause it to be positioned relatively to **the nearest positioned ancestor**.
+
+![](img/2020-08-21-21-28-41.png)
 
 
 
-
+- **fixed**
+  - A fixed element is positioned **relative to the viewport**, which means it always 
+    stays in the same place even if the page is scrolled. 
 
 
 
