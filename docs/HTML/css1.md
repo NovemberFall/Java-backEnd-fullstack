@@ -49,6 +49,67 @@
 
 ![](img/2020-08-21-15-36-29.png)
 
+![](img/2020-08-21-15-49-32.png)
+
+- [Test Margin Collapse](https://css-tricks.com/what-you-should-know-about-collapsing-margins/)
+
+
+---
+
+## Floating
+
+- The float CSS property specifies that an element should be placed along the left or 
+  right side of its container, allowing text and inline elements to wrap around it. 
+  The element is removed from the normal flow of the web page, though still remaining 
+  a part of the flow.
+
+- **How floated elements are positioned：**
+  - when an element is floated, it is taken out of the normal flow of the 
+    document (though still remaining part of it). It is shifted to the left, 
+    or right, until it touches the edge of its containing box, 
+    or another floated element.
+
+
+
+- **Syntax**
+  - float: none|left|right|inherit;
+
+  - The float property can have one of the following values:
+    - left - The element floats to the left of its container
+    - right- The element floats to the right of its container
+    - none - The element does not float 
+      (will be displayed just where it occurs in the text). This is default
+    - inherit - The element inherits the float value of its parent
+  
+- **Important facts:**
+  - 1.	float first
+    - When a container has multiple elements, some of them are floating, some of them 
+      are not, remember to put all the floating elements in front of the 
+      non-floating ones! Browsers try to figure out the spacing for those 
+      floating ones first.
+
+![](img/2020-08-21-16-41-24.png)
+
+- float: 分为 left float, right float
+  - float 会 导致 父容器高度塌陷
+    - block 元素 无法探知 float 元素的位置
+      - 但是 inline | inline-block | float   是可以探知 float 的位置
+
+
+- clear :
+  - The clear property specifies on which sides of an element floating elements 
+    are not allowed to float.
+    - `.clear { clear: both; /* it can be left|right|both */ }`
+
+
+![](img/2020-08-21-17-12-32.png)
+
+
+
+
+
+
+
 
 
 
