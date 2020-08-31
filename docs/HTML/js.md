@@ -26,7 +26,7 @@
 ---
 
 
-- Method 2: using <script>tag
+- Method 2: using `<script>` tag
   - 2.1 internal style
   - 2.2 external style (推荐)
 
