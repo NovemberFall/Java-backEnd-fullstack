@@ -173,6 +173,10 @@ var c = 10; //waht about var c;
   - Hoisting is a JavaScript mechanism where variables and function declarations 
     are moved to the top of their scope before code execution.
 
+- 总结： 说白了就是 我可以函数先执行，再定义； 但是变量不行, 这么做的话拿不到变量值
+
+---
+
 
 
 
