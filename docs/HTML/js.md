@@ -35,5 +35,58 @@
 ---
 
 
+### 2. JavaScript Fundamentals
+
+- 2.1. Variables
+  - 1. three ways of variable declaration: `let`, `var` and `const`.
+    We use those three keywords to create variables in JavaScript.
+    e.g. `let message;` or `var message;` or `const message;`
+
+- Note:
+  - 1. `var` variables are defined from the beginning of the function, no matter where 
+    the definition is.（`var is function scope`）
+  - 2.	`var` is function scope, so it has no `block scope`, but `let` and `const` are block scope.
+  - 3. `var` can be declared many times, but `let` and `const` cannot in the same scope.
 
 
+- 2.2 Data Types
+  - JavaScript is “dynamically typed”, meaning that there are data types, but variables are not bound to 
+    any of them. In JavaScript there are two types of data: `primitive` and `reference value`.
+
+```js
+//no error
+let message = "hello";
+message = 123456;
+```
+
+- Data types: Number, String, Boolean, Object, Function, `Null, Undefined`
+
+```js
+var = length = 16; //number
+var lastName = 'Johnson';  //string
+var lastName = "Johnson";  //string
+var p = {firstName: 'John', lastName:'Doe'}; //object
+var isGood = true; //booelan
+var isPlenty = true; //booelan
+var isGoodAndPlenty = true; //booelan
+var arr = [1, 2, 3]; //array
+var arr1 = [1, 2, 3, 'John', 'richard', 'bob']; //array
+
+//function
+function say(){
+  return 'I am a function';
+}
+//function expression
+var say = function(){
+  return 'I am a function';
+}
+
+var u;
+typeof u //undefined
+```
+
+---
+
+#### Null & Undefined
+
+- 
