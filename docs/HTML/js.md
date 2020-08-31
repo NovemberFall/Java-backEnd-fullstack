@@ -89,4 +89,32 @@ typeof u //undefined
 
 #### Null & Undefined
 
-- 
+- **null** is a special value meaning "no value". On the other hand, **undefined** means that the variable 
+  has not been declared, or has not been given a value.
+
+
+- object
+  - Objects are used to store keyed collections of various data and more complex entities.
+
+
+- Function
+  - Functions are the main “building blocks” of the program. They allow the code to be called 
+    many times without repetition.
+
+
+- Function Declaration
+
+
+```js
+function showMessage(){
+  alert('Hello everyone!');
+}
+```
+
+- The function keyword goes first, then goes the name of the function, then a list of parameters between 
+  the parentheses (empty in the example above) and finally the code of the function, also named 
+  “the function body”, between curly braces.
+
+![](img/2020-08-30-20-57-36.png)  
+
+
