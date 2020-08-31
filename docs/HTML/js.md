@@ -118,3 +118,78 @@ function showMessage(){
 ![](img/2020-08-30-20-57-36.png)  
 
 
+- Function Expression
+
+```js
+let sayHi = function(){
+  alert("Hello");
+};
+```
+
+- Primitive Type VS. Reference Type
+  - 1. Numbers, Strings, Booleans, and the null and undefined types are primitive. 
+  - 2. Objects, and functions are reference types.
+
+
+
+
+### 2.3 Scope
+
+![](img/2020-08-30-21-04-00.png)
+
+
+![](img/2020-08-30-21-09-49.png)
+
+- 这张图， 越往inner的函数，越可以访问 outter 函数， inner 可以访问 outter, 但是不可以相反
+
+---
+
+
+### 2.4 Hoisting (面试必考)
+
+```js
+//example 1 - 结果?
+test();
+function test(){
+    console.log("test1");
+}
+//test1
+
+
+
+//example 2 - 结果 ？
+//what about var c;
+console.log(c); // c = ?
+var c = 10; //waht about var c;
+//undefined
+
+
+//结论：
+//1. 函数声明整体提升了 - 可以调用函数
+//2. 变量声明提升了， 但是赋值没有提升
+```
+
+- **Hoisting**
+  - Hoisting is a JavaScript mechanism where variables and function declarations 
+    are moved to the top of their scope before code execution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
