@@ -16,7 +16,7 @@
 
 - 1.1 Adding JavaScript into an HTML Document
   - You can add JavaScript code in an HTML document by employing the dedicated HTML tag 
-    `<script>` that wraps around JavaScript code.
+    `script` that wraps around JavaScript code.
     Method 1: inline mode
 
 ![](img/2020-08-22-13-12-34.png)
@@ -26,7 +26,7 @@
 ---
 
 
-- Method 2: using `<script>` tag
+- Method 2: using `script ` tag
   - 2.1 internal style
   - 2.2 external style (推荐)
 
