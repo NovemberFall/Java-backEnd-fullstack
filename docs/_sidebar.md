@@ -45,5 +45,5 @@
   
 -----
 * [Internship](intern/intro.md)
-    * [small project with gradle](itern/mini.md)
+    * [small project with gradle](intern/mini.md)
 * [End](end/SUMMARY.md)
