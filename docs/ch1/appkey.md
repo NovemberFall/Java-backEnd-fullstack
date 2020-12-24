@@ -9,7 +9,7 @@
 ---
 
 ![](img/2020-03-11-16-55-02.png)
-- `LvPIxHeFr4W7cViU`, 之前的key 已经无效了，现在又更新了
+- `这里key只是演示...`, 之前的key 已经无效了，现在又更新了
 ---
 
 ## involve server API
@@ -33,7 +33,7 @@ https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/api.html
         names: 't-1'
       },
       header: {
-        appkey: 'WStnGT0uWpYyaVrn'
+        appkey: '这里key只是演示...'
       }
     })
   },
@@ -44,7 +44,7 @@ https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/api.html
 
 ```js
 const config = {
-    appkey: 'WStnGT0uWpYyaVrn',
+    appkey: '这里key只是演示...',
     apiBaseUrl: 'http://se.7yue.pro/v1/'
 };
 
