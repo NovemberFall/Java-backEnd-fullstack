@@ -42,4 +42,8 @@
     * [ch1: introduction to SpringBoot](p2/intoSpringBoot.md)
         * [1. initialize SpringBoot Project](p2/initSpringBoot.md)
         * [2. run the first project](p2/firstProject.md)
+  
+-----
+* [Internship](intern/intro.md)
+    * [small project with gradle](itern/mini.md)
 * [End](end/SUMMARY.md)
