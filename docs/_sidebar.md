@@ -46,6 +46,7 @@
 -----
 * [Internship](intern/intro.md)
     * [small project with gradle](intern/mini.md)
+    * [Liquibase Install](intern/liquibase.md)
 
 -----
 * [End](end/SUMMARY.md)
