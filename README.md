@@ -31,3 +31,9 @@ https://novemberfall.github.io/Algorithm-FullStack/
 - LeetCode-Algorithm
 
 https://novemberfall.github.io/LeetCode-NoteBook
+
+
+
+- MySQL NoSQL
+
+https://novemberfall.github.io/sql/
