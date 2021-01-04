@@ -46,6 +46,7 @@
 -----
 * [Internship](intern/intro.md)
     * [small project with gradle](intern/mini.md)
+    * [spring-boot-starter-security](intern/security.md)
     * [Liquibase | Install](intern/liquibase.md)
         * [Configure Liquibase and liquibase.properties File](intern/liqui.md)
     * [JPA | Hibernate @Embeddable Example with Spring Boot](intern/jpa.md)
