@@ -124,11 +124,36 @@ public class BannerController {
 
 ![](img/2020-05-08-00-35-52.png)
 
+---
 
 
+## 热启动
 
 
+- `pom.xml` 里替换成 `<version>2.2.2.RELEASE</version>`
 
+
+```xml
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+```
+
+- 添加以上这段到 pom.xml
+
+
+![](img/2021-01-04-13-25-56.png)
+
+- 同时build automatically
+
+---
+
+## RESTful API
+
+- `@RestController` 包含了 `Controller` and `ResponseBody`
 
 
 

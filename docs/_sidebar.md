@@ -42,6 +42,7 @@
     * [ch1: introduction to SpringBoot](p2/intoSpringBoot.md)
         * [1. initialize SpringBoot Project](p2/initSpringBoot.md)
         * [2. run the first project](p2/firstProject.md)
+        * [3. Spring IOC的核心机制：实例化与注入](p2/ioc.md)
   
 -----
 * [Internship](intern/intro.md)
