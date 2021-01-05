@@ -62,7 +62,9 @@ public class BannerController {
 ![](img/2021-01-04-22-40-44.png)
 
 
+![](img/2021-01-04-22-51-40.png)
 
+- @Configuration 就是用来替换原来的xml bean 标签的。
 
 
 

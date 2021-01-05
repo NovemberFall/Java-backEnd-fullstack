@@ -45,7 +45,11 @@
         * [3. Spring IOC的核心机制：实例化与注入](p2/ioc.md)
         * [4. 成员变量注入、Setter注入与constructor注入](p2/ioc1.md)
         * [5. SpringBoot基本配置原理](p2/config.md)
-  
+    * [ch2: springboot conditonal annotaion](p2-2/con.md)
+    * [ch3: Java Exception 深度剖析](p2-3/ex.md)
+        * [1. 全局异常处理机制导学](p2-3/ex1.md)
+
+
 -----
 * [Internship](intern/intro.md)
     * [small project with gradle](intern/mini.md)
