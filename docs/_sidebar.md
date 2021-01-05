@@ -43,6 +43,7 @@
         * [1. initialize SpringBoot Project](p2/initSpringBoot.md)
         * [2. run the first project](p2/firstProject.md)
         * [3. Spring IOC的核心机制：实例化与注入](p2/ioc.md)
+        * [4. 成员变量注入、Setter注入与constructor注入](p2/ioc1.md)
   
 -----
 * [Internship](intern/intro.md)
