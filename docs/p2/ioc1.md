@@ -152,7 +152,7 @@ public class BannerController {
 
 1. 指定一个interface, 然后用多个类实现同一个interface  => **strategy pattern**
 
-
+2. 一个类，属性 解决变化     （第二个不推荐，暂时不研究了。）
 
 
 
