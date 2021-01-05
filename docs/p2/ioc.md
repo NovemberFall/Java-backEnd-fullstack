@@ -76,7 +76,7 @@ public class BannerController {
     private Diana diana;
 
     @Autowired
-    private BannerService service;
+    private BannerService bannerService;
 
     @GetMapping("/test")
     public String test(){
@@ -85,6 +85,23 @@ public class BannerController {
     }
 }
 ```
+
+---
+
+## stereotype annotations 模式注解
+
+```java
+@Component 组件/类/bean 类的实例化 new
+
+@Service   
+@Controller
+@Repository
+
+@Configuration
+```
+
+- 底下四个都是以第一个 Component为基础
+
 
 
 
