@@ -58,5 +58,6 @@
     * [Liquibase | Install](intern/liquibase.md)
         * [Configure Liquibase and liquibase.properties File](intern/liqui.md)
     * [JPA | Hibernate @Embeddable Example with Spring Boot](intern/jpa.md)
+    * [JPA | Hibernate @ annotation](intern/anno.md)
 -----
 * [End](end/SUMMARY.md)
