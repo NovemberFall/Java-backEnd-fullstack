@@ -110,7 +110,8 @@ public class GreetingController {
 ---
 
 
-
+- 注意: 这是用Form直接call 的POST API
+- button在form里 直接submit
 
 
 
@@ -120,9 +121,9 @@ public class GreetingController {
 
 
 
+![](img/2021-01-07-00-49-40.png)
 
-
-
+![](img/2021-01-07-00-49-32.png)
 
 
 
