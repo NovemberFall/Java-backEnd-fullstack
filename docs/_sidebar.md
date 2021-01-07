@@ -60,6 +60,7 @@
     * [JPA | Hibernate @Embeddable Example with Spring Boot](intern/jpa.md)
     * [JPA | Hibernate @ annotation](intern/anno.md)
     * [thymeleaf: How to pass two objects to use in a form using thymeleaf?](intern/leaf.md)
+    * [SpringMVC | Model Object实现后段数据](intern/model.md)
   
 -----
 * [End](end/SUMMARY.md)
