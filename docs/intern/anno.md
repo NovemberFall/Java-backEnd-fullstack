@@ -261,13 +261,62 @@ public class MyController {
 ---
 
 
+```html
+<!-- resources/templates/showCities.ftlh -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cities</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h2>List of cities</h2>
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Population</th>
+            </tr>
+
+            <#list cities as city>
+                <tr>
+                    <td>${city.id}</td>
+                    <td>${city.name}</td>
+                    <td>${city.population}</td>
+                </tr>
+            </#list>
+        </table>
+    </body>
+</html>
+```
+
+- This is the showCities.ftlh template file. It uses FreeMarker `#list` **macro** to display all city objects.
+
+---
 
 
+```java
+com/zetcode/Application.java
+package com.zetcode;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
 
 
-
-
-
+- The `@SpringBootApplication` enables auto-configuration and component scanning.
+  - `mvn spring-boot:run`
 
 
 
