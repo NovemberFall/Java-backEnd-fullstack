@@ -59,5 +59,7 @@
         * [Configure Liquibase and liquibase.properties File](intern/liqui.md)
     * [JPA | Hibernate @Embeddable Example with Spring Boot](intern/jpa.md)
     * [JPA | Hibernate @ annotation](intern/anno.md)
+    * [thymeleaf: How to pass two objects to use in a form using thymeleaf?](intern/leaf.md)
+  
 -----
 * [End](end/SUMMARY.md)
