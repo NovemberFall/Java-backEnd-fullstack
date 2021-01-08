@@ -63,6 +63,7 @@
     * [SpringMVC | Model Object实现后段数据](intern/model.md)
     * [Thymeleaf 常用th标签](intern/th.md)
     * [Java 8 Optional Class](intern/optional.md)
+    * [Postman Authorization](intern/auth.md)
   
 -----
 * [End](end/SUMMARY.md)
