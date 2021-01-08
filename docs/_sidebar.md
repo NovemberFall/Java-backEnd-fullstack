@@ -64,6 +64,7 @@
     * [Thymeleaf 常用th标签](intern/th.md)
     * [Java 8 Optional Class](intern/optional.md)
     * [Postman Authorization](intern/auth.md)
+    * [Lombok @Accessors注解的用法](intern/accessors.md)
   
 -----
 * [End](end/SUMMARY.md)
