@@ -65,6 +65,7 @@
     * [Java 8 Optional Class](intern/optional.md)
     * [Postman Authorization](intern/auth.md)
     * [Lombok @Accessors注解的用法](intern/accessors.md)
+    * [Spring Looger into file](intern/logger.md)
   
 -----
 * [End](end/SUMMARY.md)
