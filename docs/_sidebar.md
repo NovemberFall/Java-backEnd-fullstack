@@ -66,6 +66,7 @@
     * [Postman Authorization](intern/auth.md)
     * [Lombok @Accessors注解的用法](intern/accessors.md)
     * [Spring Looger into file](intern/logger.md)
+    * [MySQL configuration](intern/mysql.md)
   
 -----
 * [End](end/SUMMARY.md)
