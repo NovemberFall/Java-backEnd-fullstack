@@ -184,11 +184,29 @@ public class Banner {
 
 ---
 
+- 有时候我们不希望table里的，也有class里的filed, 我们可以用@Transient
 
 
+```java
+@Entity
+@Table(name="banner")
+public class Banner {
+    @Id
+    private long id; //在这里，这个叫做主键
 
+    @Column(length = 16)
+    private String name;
 
+    @Transient
+    private String description;
+    private String img;
+    private String title;
+}
+```
 
+![](img/2021-01-13-12-57-03.png)
+
+- 可以看到这次 description 已经不在table里。
 
 
 
