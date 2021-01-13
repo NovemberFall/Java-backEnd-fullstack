@@ -60,6 +60,7 @@
     * [JPA | Hibernate @Embeddable Example with Spring Boot](intern/jpa.md)
     * [JPA | Hibernate @ annotation](intern/anno.md)
     * [JPA | model => table | yml配置](intern/model1.md)
+        * [one-to-one, many-to-many, one-to-many](intern/model2.md)
     * [thymeleaf: How to pass two objects to use in a form using thymeleaf?](intern/leaf.md)
     * [SpringMVC | Model Object实现后段数据](intern/model.md)
     * [Thymeleaf 常用th标签](intern/th.md)
