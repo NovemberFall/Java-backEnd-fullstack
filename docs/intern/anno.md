@@ -319,10 +319,15 @@ public class Application {
   - `mvn spring-boot:run`
 
 
+---
 
 
+## @Temporal
+
+- [@Temporal is a JPA annotation](https://stackoverflow.com/questions/25333711/what-is-the-use-of-the-temporal-annotation-in-hibernate#:~:text=%40Temporal%20is%20a%20JPA%20annotation,converts%20time%2Dstamp%20into%20time.)
 
 
+---
 
 
 
