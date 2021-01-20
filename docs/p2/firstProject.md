@@ -75,6 +75,7 @@ public class BannerController {
 - 由于我们之前已经配置到 `8081` 端口
 
 - 我们需要引入一个 `HttpServletResponse` 
+- 同时给 BannerController 上面加上 @Contoller
 
 ```java
 @Controller
