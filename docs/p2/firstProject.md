@@ -75,7 +75,7 @@ public class BannerController {
 - 由于我们之前已经配置到 `8081` 端口
 
 - 我们需要引入一个 `HttpServletResponse` 
-- 同时给 BannerController 上面加上 @Contoller
+- 同时给 BannerController 上面加上 @Contoller, 不打上标识就变成了普通的类，就没有意义。
 
 ```java
 @Controller
@@ -99,6 +99,8 @@ public class BannerController {
 
 
 ## `ResponseBody` 简化 `ServletResponse`
+
+- `ResponseBody` 还可以写中文格式, 解决编码问题
 
 ```java
 @Controller

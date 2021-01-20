@@ -1,5 +1,25 @@
 ## @Configuration 配置类
 
+- 先来看一个例子：
+
+```java
+public class HeroConfiguration {
+    public ISkill caille() {
+        return new Camille();
+    }
+}
+```
+
+- 在spring里，单纯这样写，你是得不到 new caille()， 
+
+![](img/2021-01-20-14-30-30.png)
+
+
+---
+
+### 所以可以添加 @Configuration
+
+
 ```java
 public interface ISkill {
     void q();
@@ -66,7 +86,7 @@ public class BannerController {
 
 - @Configuration 就是用来替换原来的xml bean 标签的。
 
-
+- @Configuration and @bean 是可以把一个bean 放入到容器里去.
 
 
 

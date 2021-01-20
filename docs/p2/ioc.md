@@ -2,7 +2,7 @@
 
 ### SpringBoot 最基础的编程模式 @Component + @Autowired
 
-- `@Component` 会被加入到容器，做点实例：
+- `@Component` 会被加入到容器，example：
 
 - `missyou/sample/hero/`
 
@@ -31,6 +31,7 @@ public class Diana {
 - 加上`@Component` springboot 就会自动把它加入容器，
 
 - 现在我们使用 注入 `inject` 到 `api/v1/BannerController`
+  - 通过`@Autowired`来inject
 
 ```java
 @RestController
@@ -65,7 +66,7 @@ public class BannerController {
 @Service
 public class BannerService {
 }
-
+//关于 @Service 之后会解释!
 
 
 @RestController
