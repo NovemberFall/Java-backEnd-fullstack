@@ -1,7 +1,8 @@
 ## 全局异常处理机制导学
 
- - 来写一个异常
+- 来写一个异常
 
+- 添加两个注解： `@ControllerAdvice`, ` @ExceptionHandler(value=Exception.class)`
 
 ```java
 @ControllerAdvice
@@ -35,7 +36,15 @@ public class BannerController {
 
 ---
 
+### UnifyResponse 统一错误响应
 
+```json
+{
+    code:10001
+    message:xxxx
+    request: GET url
+}
+```
 
 
 
