@@ -53,7 +53,8 @@
         * [UnifyRresponse ｜ 处理未知异常](p2-3/ex4.md)
         * [处理已知异常](p2-3/ex5.md)
         * [为什么要将exception写在配置文件里](p2-3/ex6.md)
-
+        * [SpringBoot 的主动发现机制](p2-3/ex7.md)
+        * [获取URL路径中的参数和查询](p2-3/ex8.md) 
 
 -----
 * [Internship](intern/intro.md)
