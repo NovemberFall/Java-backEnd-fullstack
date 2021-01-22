@@ -40,16 +40,19 @@
 -----
 * [E-commerce Part2: Java & SpringBoot](p2/intro.md)
     * [ch1: introduction to SpringBoot](p2/intoSpringBoot.md)
-        * [1. initialize SpringBoot Project](p2/initSpringBoot.md)
-        * [2. run the first project](p2/firstProject.md)
-        * [3. Spring IOC的核心机制：实例化与注入](p2/ioc.md)
-        * [4. 成员变量注入、Setter注入与constructor注入](p2/ioc1.md)
-        * [5. SpringBoot基本配置原理](p2/config.md)
+        * [initialize SpringBoot Project](p2/initSpringBoot.md)
+        * [run the first project](p2/firstProject.md)
+        * [Spring IOC的核心机制：实例化与注入](p2/ioc.md)
+        * [成员变量注入、Setter注入与constructor注入](p2/ioc1.md)
+        * [SpringBoot基本配置原理](p2/config.md)
     * [ch2: springboot conditonal annotaion](p2-2/con.md)
     * [ch3: Java Exception 深度剖析](p2-3/ex.md)
-        * [1. 全局异常处理机制导学](p2-3/ex1.md)
-        * [2. exception 异常分类](p2-3/ex2.md)
-        * [3. 如何统一捕获：exception](p2-3/ex3.md)
+        * [全局异常处理机制导学](p2-3/ex1.md)
+        * [exception 异常分类](p2-3/ex2.md)
+        * [如何统一捕获：exception](p2-3/ex3.md)
+        * [UnifyRresponse ｜ 处理未知异常](p2-3/ex4.md)
+        * [处理已知异常](p2-3/ex5.md)
+        * [为什么要将exception写在配置文件里](p2-3/ex6.md)
 
 
 -----
