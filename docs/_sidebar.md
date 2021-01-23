@@ -60,6 +60,7 @@
         * [@Validated 注解进行基础参数校验](p2-3/ex11.md) 
         * [验证 HTTP Body中的参数](p2-3/ex12.md) 
         * [自定义校验注解 | 密码确认](p2-3/ex13.md) 
+        * [捕获DTO类的参数校验异常信息](p2-3/ex14.md) 
 
 -----
 * [Internship](intern/intro.md)
