@@ -88,7 +88,57 @@ public class BannerController {
 
 ![](img/2021-01-22-12-03-19.png)
 
+- create a PersonDTO
 
+```java
+public class PersonDTO {
+    @Length(min=2, max=10, message = "xxxxx")
+    private String name;
+    private Integer age;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+}
+
+
+
+
+@RestController
+@RequestMapping("/v1/banner")
+public class BannerController {
+
+    @Autowired
+//    @Qualifier("irelia")
+    private ISkill iSkill;
+
+    // v1/banner/test/2
+    @PostMapping("/test/{id}")
+    public String test(@PathVariable(name="id") Integer tempId,
+                       @RequestParam String name,
+                       @RequestBody PersonDTO person
+                       ) throws Exception{
+        iSkill.r();
+        // 这一行我们是为了抛出未知异常
+//        throw new RuntimeException("122222222");
+
+        //抛出已知异常
+        throw new ForbiddenException(10001);
+    }
+}
+```
 
 
 

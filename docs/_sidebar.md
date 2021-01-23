@@ -55,6 +55,10 @@
         * [为什么要将exception写在配置文件里](p2-3/ex6.md)
         * [SpringBoot 的主动发现机制](p2-3/ex7.md)
         * [获取URL路径中的参数和查询](p2-3/ex8.md) 
+        * [LomBok 的基本使用](p2-3/ex9.md) 
+        * [@Builder 构造器模式](p2-3/ex10.md) 
+        * [@Validated 注解进行基础参数校验](p2-3/ex11.md) 
+        * [验证 HTTP Body中的参数](p2-3/ex12.md) 
 
 -----
 * [Internship](intern/intro.md)
