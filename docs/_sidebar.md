@@ -80,6 +80,7 @@
     * [Lombok @Accessors注解的用法](intern/accessors.md)
     * [Spring Looger into file](intern/logger.md)
     * [MySQL configuration](intern/mysql.md)
+    * [H2 DB embedded, config](intern/h2.md)
   
 -----
 * [End](end/SUMMARY.md)
