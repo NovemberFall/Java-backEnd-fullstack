@@ -27,4 +27,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 ```
 
+---
+
+### edit `app.component.html`
+
+```html
+<div class="container">
+  <h1 class="mt-3 mb-3">Product</h1>
+</div>
+```
+
+- run `ng serve --open`
+
+![](img/2021-03-07-21-34-10.png)
+
 
